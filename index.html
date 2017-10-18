@@ -166,10 +166,12 @@
                     if (m <= 34) {
                         window.location.assign(pdurl10)
                     } else {
-                        document.getElementById('Status').innerHTMl = "Classes are done for the day. Please try again tomorrow.";
+                    alert("Classes are done for the day. Please try again tomorrow.");
+                    document.getElementById('Status').innerHTML = "";
                     }
                 } else {
-                    document.getElementById('Status').innerHTML = "Classes are done for the day. <br>Please try again tomorrow.";
+                    alert("Classes are done for the day. Please try again tomorrow.");
+                    document.getElementById('Status').innerHTML = "";
                 }
             }
 

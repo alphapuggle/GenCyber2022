@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <title>TBC</title>
+        <style>
+            form.firstrun {
+                display: inline;
+            }
+            form.firstrunfalse {
+                display: none;
+            }
+        </style>
+        <script>
+            function debugFunction() {
+                document.getElementById('Status').innerHTML = pdurl1;
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+        </script>
+        <script>
+            function pageTime() {
+                var d2 = new Date();
+                document.getElementById('Status').innerHTML = d2;
+                return pageTime2();
+            }
+
+            function pageTime2() {
+                setTimeout(pageTime, 1000);
+            }
+        </script>
+        <script>
+            function pageDebug() {
+                document.getElementById('Status').innerHTML = getCookie('firstrun');
+            }
+        </script>
+        <script>
+            function firstrunFunction() {
+                document.getElementById('Pdls').className = "firstrun";
+            }
+        </script>
+        <script>
+            function firstrunFunction2() {
+                document.cookie = "firstrun=yes; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                var pdv1 = document.getElementById('pd1').value
+                var pdv2 = document.getElementById('pd2').value
+                var pdv3 = document.getElementById('pd3').value
+                var pdv4 = document.getElementById('pd4').value
+                var pdv5 = document.getElementById('pd5').value
+                var pdv6 = document.getElementById('pd6').value
+                var pdv7 = document.getElementById('pd7').value
+                var pdv8 = document.getElementById('pd8').value
+                var pdv9 = document.getElementById('pd9').value
+                var pdv10 = document.getElementById('pd10').value
+                document.cookie = "period1=" + pdv1 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period2=" + pdv2 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period3=" + pdv3 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period4=" + pdv4 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period5=" + pdv5 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period6=" + pdv6 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period7=" + pdv7 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period8=" + pdv8 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period9=" + pdv9 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "period10=" + pdv10 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                location.reload()
+            }
+        </script>
+        <script>
+            function pageLoad() {
+                if (getCookie('firstrun') == "") {
+                    document.getElementById('Status').innerHTML = "Please complete the first run setup below."
+                    return firstrunFunction();
+                } else {
+                    return classroomLoad();
+                }
+            }
+        </script>
+        <script>
+            function classroomLoad() {
+                var period1 = getCookie('period1');
+                var period2 = getCookie('period2');
+                var period3 = getCookie('period3');
+                var period4 = getCookie('period4');
+                var period5 = getCookie('period5');
+                var period6 = getCookie('period6');
+                var period7 = getCookie('period7');
+                var period8 = getCookie('period8');
+                var period9 = getCookie('period9');
+                var period10 = getCookie('period10');
+                var pdurl1 = "https://classroom.google.com/u/0/c/" + period1;
+                var pdurl2 = "https://classroom.google.com/u/0/c/" + period2;
+                var pdurl3 = "https://classroom.google.com/u/0/c/" + period3;
+                var pdurl4 = "https://classroom.google.com/u/0/c/" + period4;
+                var pdurl5 = "https://classroom.google.com/u/0/c/" + period5;
+                var pdurl6 = "https://classroom.google.com/u/0/c/" + period6;
+                var pdurl7 = "https://classroom.google.com/u/0/c/" + period7;
+                var pdurl8 = "https://classroom.google.com/u/0/c/" + period8;
+                var pdurl9 = "https://classroom.google.com/u/0/c/" + period9;
+                var pdurl10 = "https://classroom.google.com/u/0/c/" + period10;
+                var d = new Date();
+                var h = d.getHours();
+                var m = d.getMinutes();
+                if (h == "7") {
+                    if (m >= 30) {
+                        window.location.assign(pdurl1)
+                    } else if (h == 8) {
+                        if (m <= 13) {
+                            window.location.assign(pdurl1)
+                        } else if (m >= 14) {
+                            if (m <= 56) {
+                                window.location.assign(pdurl2)
+                            } else {
+                                window.location.assign(pdurl3)
+                            }
+                        }
+                    }
+                } else if (h == 9) {
+                    if (m <= 37) {
+                        window.location.assign(pdurl3)
+                    } else if (m >= 38) {
+                        window.location.assign(pdurl4)
+                    }
+                } else if (h == 10) {
+                    if (m <= 22) {
+                        window.location.assign(pdurl4)
+                    } else {
+                        window.location.assign(pdurl5)
+                    }
+                } else if (h == 11) {
+                    if (m <= 4) {
+                        window.location.assign(pdurl5)
+                    } else if (m >= 5) {
+                        if (m <= 47) {
+                            window.location.assign(pdurl6)
+                        }
+                    } else if (m >= 48) {
+                        window.location.assign(pdurl7)
+                    }
+                } else if (h == 12) {
+                    if (m <= 31) {
+                        window.location.assign(pdurl7)
+                    } else if (m >= 32) {
+                        window.location.assign(pdurl8)
+                    }
+                } else if (h == 13) {
+                    if (m <= 14) {
+                        window.location.assign(pdurl8)
+                    } else if (m >= 15) {
+                        window.location.assign(pdurl9)
+                    }
+                } else if (h == 14) {
+                    if (m <= 34) {
+                        window.location.assign(pdurl10)
+                    } else {
+                        document.getElementById('Status').innerHTMl = "Classes are done for the day. Please try again tomorrow.";
+                    }
+                }
+            }
+
+            function scriptSuccess() {
+                return pageTime();
+                document.getElementById('Status').innerHTML = ""
+            }
+        </script>
+    </head>
+
+    <body onload="return pageLoad();">
+        <p id="Status">Error: Script did not complete successfuly</p>
+        <p id="Debug"></p>
+        <form onsubmit="return firstrunFunction2();" class="firstrunfalse" id="Pdls">
+            <p>First run:
+                <br>To setup, please type the class code for each classroom.
+                <br>EX: <i>https://classroom.google.com/u/0/c/<strong> NzA2MDk5NzM5MVpa</strong></i>
+                <br>Please <strong>only</strong> put the end code or else the application will fail to run.</p>
+            <br>
+            <p>Period 1</p>
+            <input type="text" id="pd1">
+            <br>
+            <p>Period 2</p>
+            <input type="text" id="pd2">
+            <br>
+            <p>Period 3</p>
+            <input type="text" id="pd3">
+            <br>
+            <p>Period 4</p>
+            <input type="text" id="pd4">
+            <br>
+            <p>Period 5</p>
+            <input type="text" id="pd5">
+            <br>
+            <p>Period 6</p>
+            <input type="text" id="pd6">
+            <br>
+            <p>Period 7</p>
+            <input type="text" id="pd7">
+            <br>
+            <p>Period 8</p>
+            <input type="text" id="pd8">
+            <br>
+            <p>Period 9</p>
+            <input type="text" id="pd9">
+            <br>
+            <p>Period 10</p>
+            <input type="text" id="pd10">
+            <br>
+            <input type=submit id="submitFirstrun">
+        </form>
+        <button onclick="return pageDebug();">Debug</button>
+    </body>
+
+</html>

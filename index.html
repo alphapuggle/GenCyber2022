@@ -55,7 +55,7 @@
         </script>
         <script>
             function firstrunFunction2() {
-                document.cookie = "firstrun=yes; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+                document.cookie = "firstrun=false; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
                 var pdv1 = document.getElementById('pd1').value
                 var pdv2 = document.getElementById('pd2').value
                 var pdv3 = document.getElementById('pd3').value
@@ -162,6 +162,9 @@
         <script>
             function pageLoad() {
                 if (getCookie('firstrun') == "") {
+                    document.getElementById('Status').innerHTML = "Please complete the first run setup below."
+                    return firstrunFunction();
+                } else if (getCookie('firstrun') == "yes") {
                     document.getElementById('Status').innerHTML = "Please complete the first run setup below."
                     return firstrunFunction();
                 } else {

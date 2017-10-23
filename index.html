@@ -117,15 +117,15 @@
                 if (h == "7") {
                     if (m >= 30) {
                         window.location.assign(pdurl1)
-                    } else if (h == 8) {
-                        if (m <= 13) {
-                            window.location.assign(pdurl1)
-                        } else if (m >= 14) {
-                            if (m <= 56) {
-                                window.location.assign(pdurl2)
-                            } else {
-                                window.location.assign(pdurl3)
-                            }
+                    }
+                } else if (h == 8) {
+                    if (m <= 13) {
+                        window.location.assign(pdurl1)
+                    } else if (m >= 14) {
+                        if (m <= 56) {
+                            window.location.assign(pdurl2)
+                        } else {
+                            window.location.assign(pdurl3)
                         }
                     }
                 } else if (h == 9) {
@@ -166,8 +166,8 @@
                     if (m <= 34) {
                         window.location.assign(pdurl10)
                     } else {
-                    alert("Classes are done for the day. Please try again tomorrow.");
-                    document.getElementById('Status').innerHTML = "";
+                        alert("Classes are done for the day. Please try again tomorrow.");
+                        document.getElementById('Status').innerHTML = "";
                     }
                 } else {
                     alert("Classes are done for the day. Please try again tomorrow.");
@@ -223,7 +223,7 @@
             <br>
             <input type=submit id="submitFirstrun">
         </form>
-        <!-- <button onclick="return pageDebug();">Debug</button> -->
+        <button onclick="return pageDebug();">Debug</button>
     </body>
 
 </html>

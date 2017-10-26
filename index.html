@@ -181,6 +181,7 @@
         </script>
         <script>
             function pageLoad() {
+                document.getElementById('Version').innerHTML = getCookie('firstrun')
                 if (getCookie('firstrun') == "") {
                     document.getElementById('Status').innerHTML = "Please complete the first run setup below."
                     return firstrunFunction();
@@ -188,7 +189,6 @@
                     if (getCookie('firstrun') != "v2.5") {
                         if (getCookie('firstrun') == "yes" || getCookie('firstrun') == "false") {
                         document.getElementById('Status').innerHTML = "Old version detected, please recomplete the first run setup below"
-                        document.getElementById('Version').innerHTML = getCookie('firstrun')
                         return firstrunFunction();
                         } else {
                             document.getElementById('Status').innerHTML = "Unknown version " + getCookie('firstrun') + " detected, Please recomplete the first run setup below."

@@ -176,18 +176,31 @@
                     return firstrunFunction();
                 } else if (getCookie('firstrun') != "") {
                     if (getCookie('firstrun') != "v2.5") {
-                        document.getElementById('Status').innerHTML = "Please complete the first run setup below."
-                        return firstrunFunction();
-                    } else if (getCookie('firstrun') == "yes" || getCookie('firstrun') == "false") {
+                        if (getCookie('firstrun') == "yes" || getCookie('firstrun') == "false") {
                         document.getElementById('Status').innerHTML = "Old version detected, please recomplete the first run setup below"
+                        return firstrunFunction();
+                        } else {
+                            document.getElementById('Status').innerHTML = "Unknown version " + getCookie('firstrun') + " detected, Please recomplete the first run setup below."
+                          return firstrunFunction();
+                        }
                     } else {
-                        return classroomLoad();
+                    return classroomLoad();
                     }
                 }
             }
         </script>
         <script>
             function classroomLoad() {
+                document.getElementById('pd1').value = getCookie('period1')
+                document.getElementById('pd2').value = getCookie('period2')
+                document.getElementById('pd3').value = getCookie('period3')
+                document.getElementById('pd4').value = getCookie('period4')
+                document.getElementById('pd5').value = getCookie('period5')
+                document.getElementById('pd6').value = getCookie('period6')
+                document.getElementById('pd7').value = getCookie('period7')
+                document.getElementById('pd8').value = getCookie('period8')
+                document.getElementById('pd9').value = getCookie('period9')
+                document.getElementById('pd10').value = getCookie('period10')
                 var period1 = getCookie('period1');
                 var period2 = getCookie('period2');
                 var period3 = getCookie('period3');

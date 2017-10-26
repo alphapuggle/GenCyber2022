@@ -181,7 +181,11 @@
         </script>
         <script>
             function pageLoad() {
-                document.getElementById('Version').innerHTML = getCookie('firstrun')
+                if (getcookie('firstrun') != "") {
+                document.getElementById('Version').innerHTML = "Version: " + getCookie('firstrun')
+                } else {
+                 document.getElementById('Version').innerHTML = "Version: N/A";
+                }
                 if (getCookie('firstrun') == "") {
                     document.getElementById('Status').innerHTML = "Please complete the first run setup below."
                     return firstrunFunction();

@@ -1,14 +1,20 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Clear Cookies<title>
+    <title>Clear Cookies</title>
     <script>
       function cookieClear(){
-      
+        if (getCookie('firstrun') == 'false') {
+          document.getElementById('status').innerHTML = "You are running the most recent version of TBC, resetting to provide you with a fresh experience";
+          document.cookie = "firstrun=";
+        } else if (getCookie('firstrun') == 'yes') {
+          document.getElementById('status').innerHTML = "You are on a previous version of TBC, resetting to provide you with a fresh experience";
+          document.cookie = "firstrun=";
+        }
       }
     </script>
   </head>
-  <body>
+  <body onload="return cookieClear();>
     <h1 id="status"></h1>
   </body>
 </html>

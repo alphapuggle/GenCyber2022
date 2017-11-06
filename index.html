@@ -51,12 +51,6 @@
         </script>
         <script>
             function firstrunFunction() {
-                document.getElementById('Pdls').className = "firstrun";
-            }
-        </script>
-        <script>
-            function firstrunFunction2() {
-                document.cookie = "firstrun=v2.5; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
                 var pdv1 = document.getElementById('pd1').value
                 var pdv2 = document.getElementById('pd2').value
                 var pdv3 = document.getElementById('pd3').value
@@ -67,6 +61,12 @@
                 var pdv8 = document.getElementById('pd8').value
                 var pdv9 = document.getElementById('pd9').value
                 var pdv10 = document.getElementById('pd10').value
+                document.getElementById('Pdls').className = "firstrun";
+            }
+        </script>
+        <script>
+            function firstrunFunction2() {
+                document.cookie = "firstrun=v2.5; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
                 document.cookie = "period1=" + pdv1 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
                 document.cookie = "period2=" + pdv2 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
                 document.cookie = "period3=" + pdv3 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -199,6 +199,7 @@
         </script>
         <script>
             function classroomLoad() {
+                document.getElementById('Status').innerHTML = ""
                 var period1 = getCookie('period1');
                 var period2 = getCookie('period2');
                 var period3 = getCookie('period3');

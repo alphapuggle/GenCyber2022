@@ -12,4 +12,8 @@
     <h3>Issues</h3>
     <p>Issues can be reported at http://github.com/linuxfan1/linuxfan1.github.io/issues</p> 
   </li>
+  <li>
+    <h2> Inspect </h2>
+    <p> Inspect replacement when Google's is blocked. All code owned by the Chromium project at http://chromium.org </p>
+  </li>
 </ul>

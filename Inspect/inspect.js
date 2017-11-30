@@ -8,6 +8,10 @@ var MIN_VERSION_NEW_TAB = 29;
 var MIN_VERSION_TAB_ACTIVATE = 30;
 var WEBRTC_SERIAL = 'WEBRTC';
 
+var imported = document.createElement('script');
+imported.src = 'chrome_send.js';
+document.head.appendChild(imported);
+
 var queryParamsObject = {};
 var browserInspector;
 var browserInspectorTitle;

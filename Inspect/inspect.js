@@ -32,6 +32,7 @@ if ('trace' in queryParamsObject || 'tracing' in queryParamsObject) {
 })();
 
 function sendCommand(command, args) {
+  chrome.send = function(msg, opt_args) {};
   chrome.send(command, Array.prototype.slice.call(arguments, 1));
 }
 

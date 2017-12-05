@@ -18,13 +18,9 @@ function getCookie(cname) {
     }
     return "";
 }
-</script>
-<script>
 function pageDebug() {
     document.getElementById('Status').innerHTML = decodedCookie;
 }
-</script>
-<script>
 function firstrunFunction() {
     document.getElementById('pd1').value = getCookie("period1")
     document.getElementById('pd2').value = getCookie("period2")
@@ -38,8 +34,6 @@ function firstrunFunction() {
     document.getElementById('pd10').value = getCookie("period10")
     document.getElementById('Pdls').className = "firstrun";
 }
-</script>
-<script>
 function firstrunFunction2() {
     document.cookie = "firstrun=v2.5; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     var pdv1 = document.getElementById('pd1').value

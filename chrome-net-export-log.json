@@ -1,0 +1,10 @@
+Logging is in progress writing data to:
+    /home/chronos/u-f6babbc546ae387a6a7915d8f2b62ec408d20c8d/GCache/v1/files/e7fe3f3d-2734-4c2e-8c04-b1a2ac8c5896.inprogress
+
+That data will be stitched into a single file (this one) once logging
+has stopped.
+
+If logging was interrupted, you can stitch a NetLog file out of the
+.inprogress directory manually using:
+
+https://chromium.googlesource.com/chromium/src/+/master/net/tools/stitch_net_log_files.py

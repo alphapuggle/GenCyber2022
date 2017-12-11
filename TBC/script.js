@@ -35,7 +35,7 @@ function firstrunFunction() {
     document.getElementById('Pdls').className = "firstrun";
 }
 function firstrunFunction2() {
-    document.cookie = "firstrun=v3.0; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+    document.cookie = "firstrun=" + currentversion + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     var pdv1 = document.getElementById('pd1').value
     var pdv2 = document.getElementById('pd2').value
     var pdv3 = document.getElementById('pd3').value
@@ -159,12 +159,13 @@ function firstrunFunction2() {
     location.reload()
 }
 function pageLoad() {
+    var currentversion = "v3.0"
     if (getCookie('firstrun') == "") {
         document.getElementById('Status').innerHTML = "Please complete the first run setup below."
         return firstrunFunction();
     } else if (getCookie('firstrun') != "") {
-        if (getCookie('firstrun') != "3.0") {
-            document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected, please recomplete the form."
+        if (getCookie('firstrun') != currentversion) {
+            document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected. The current version is " + currentversion + ", please recomplete the form."
             return firstrunFunction();
         } else {
             return classroomLoad();

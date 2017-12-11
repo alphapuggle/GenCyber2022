@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Clear Cookies</title>
+    <title>TBC Reset</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
     <script>
       function cookieClear() {
         if (getCookie('firstrun') == 'false') {
@@ -10,6 +11,10 @@
           document.cookie = "firstrun=";
         } else if (getCookie('firstrun') == 'yes') {
           document.getElementById('status').innerHTML = "You are on TBC v1.0 or v1.5.";
+          document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
+          document.cookie = "firstrun=";
+        } else if (getCookie('firstrun') != ''){
+          document.getElementById('status').innerHTML = "You are on TBC " + getCookie('firstrun');
           document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
           document.cookie = "firstrun=";
         } else {

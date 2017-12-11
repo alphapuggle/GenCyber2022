@@ -4,23 +4,26 @@
     <title>TBC Reset</title>
     <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
     <script>
+      function finishClear() {
+          document.cookie = "firstrun=";
+      }
       function cookieClear() {
-        if (getCookie('firstrun') == 'false') {
-          document.getElementById('status').innerHTML = "You are running TBC v2.0.";
+        if (getCookie('firstrun') == 'yes') {
+          document.getElementById('status').innerHTML = "You are running TBC v1.0 or v1.5.";
           document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
-          document.cookie = "firstrun=";
-        } else if (getCookie('firstrun') == 'yes') {
-          document.getElementById('status').innerHTML = "You are on TBC v1.0 or v1.5.";
+          return finishClear();
+        } else if (getCookie('firstrun') == 'false') {
+          document.getElementById('status').innerHTML = "You are on TBC v2.0.";
           document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
-          document.cookie = "firstrun=";
+          return finishClear();
         } else if (getCookie('firstrun') != ''){
           document.getElementById('status').innerHTML = "You are on TBC " + getCookie('firstrun');
           document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
-          document.cookie = "firstrun=";
+          return finishClear();
         } else if (getCookie('firstrun') == '') {
           document.getElementById('status').innerHTML = "No recent install of TBC detected.";
           document.getElementById('status2').innerHTML = "Clearing cookies in case I haven't updated this file to include latest version of TBC";
-          document.cookie = "firstrun=";
+          return finishClear();
         }
       }
        function getCookie(cname) {

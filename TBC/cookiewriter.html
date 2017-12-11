@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <title>TBC Cookie RW</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
+    <style>
+      body {
+        margin-top:20px;
+        margin-bottom:20px;
+        margin-left:20px;
+        margin-right:20px;
+      }
+      div.invisible {
+        display:none;
+      }
+    </style>
+    <script>
+      function cookieChange() {
+        if (document.getElementById('firstrun') != '') {
+        document.cookie = "firstrun=" + document.getElementById('firstrun')
+        }
+        if (document.getElementById('period1') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period1')
+        }
+        if (document.getElementById('period2') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period2')
+        }
+        if (document.getElementById('period3') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period3')
+        }
+        if (document.getElementById('period4') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period4')
+        }
+        if (document.getElementById('period5') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period5')
+        }
+        if (document.getElementById('period6') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period6')
+        }
+        if (document.getElementById('period7') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period7')
+        }
+        if (document.getElementById('period8') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period8')
+        }
+        if (document.getElementById('period9') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period9')
+        }
+        if (document.getElementById('period10') != '') {
+        document.cookie = "firstrun=" + document.getElementById('period10')
+        }
+        document.getElementById('success').className = "alert alert-info"
+  </head>
+  <body>
+    <div class="invisible" id="success">
+      <strong>Success!</strong> Cookies Changed!
+    </div>
+    <div class="jumbotron">
+      <form id="cookies" onsubmit="return cookieChange();">
+      <input class="form-control" type="text" id="firstrun" placeholder="firstrun">
+      <input class="form-control" type="text" id="period1" placeholder="period1">
+      <input class="form-control" type="text" id="period2" placeholder="period2>
+      <input class="form-control" type="text" id="period3" placeholder="period3">
+      <input class="form-control" type="text" id="period4" placeholder="period4">
+      <input class="form-control" type="text" id="period5" placeholder="period5">
+      <input class="form-control" type="text" id="period6" placeholder="period6">
+      <input class="form-control" type="text" id="period7" placeholder="period7">
+      <input class="form-control" type="text" id="period8" placeholder="period8">
+      <input class="form-control" type="text" id="period9" placeholder="period9">
+      <input class="form-control" type="text" id="period10" placeholder="period10">
+      <button type="button" class="btn btn-secondary">Submit</button>
+    </div>
+  </body>
+</html>

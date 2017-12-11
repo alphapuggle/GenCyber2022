@@ -17,7 +17,7 @@
           document.getElementById('status').innerHTML = "You are on TBC " + getCookie('firstrun');
           document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
           document.cookie = "firstrun=";
-        } else {
+        } else if (getCookie('firstrun') == '') {
           document.getElementById('status').innerHTML = "No recent install of TBC detected.";
           document.getElementById('status2').innerHTML = "Clearing cookies in case I haven't updated this file to include latest version of TBC";
           document.cookie = "firstrun=";
@@ -39,9 +39,19 @@
         return "";
        }
     </script>
+    <style>
+      body {
+        margin-top:20px;
+        margin-bottom:20px;
+        margin-left:20px;
+        margin-right:20px;
+      }
+    </style>
   </head>
   <body onload="return cookieClear();">
-    <h1 id="status"></h1>
-    <p id="status2"></p>
+    <div class="jumbotron">
+      <h1 id="status"></h1>
+      <p id="status2"></p>
+    </div>
   </body>
 </html>

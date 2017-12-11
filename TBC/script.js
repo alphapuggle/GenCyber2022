@@ -35,7 +35,7 @@ function firstrunFunction() {
     document.getElementById('Pdls').className = "firstrun";
 }
 function firstrunFunction2() {
-    document.cookie = "firstrun=v2.5; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+    document.cookie = "firstrun=v3.0; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     var pdv1 = document.getElementById('pd1').value
     var pdv2 = document.getElementById('pd2').value
     var pdv3 = document.getElementById('pd3').value
@@ -163,11 +163,9 @@ function pageLoad() {
         document.getElementById('Status').innerHTML = "Please complete the first run setup below."
         return firstrunFunction();
     } else if (getCookie('firstrun') != "") {
-        if (getCookie('firstrun') != "v2.5") {
-            document.getElementById('Status').innerHTML = "Please complete the first run setup below."
+        if (getCookie('firstrun') != "3.0") {
+            document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected, please recomplete the form."
             return firstrunFunction();
-        } else if (getCookie('firstrun') == "yes" || getCookie('firstrun') == "false") {
-            document.getElementById('Status').innerHTML = "Old version detected, please recomplete the first run setup below"
         } else {
             return classroomLoad();
         }

@@ -1,4 +1,4 @@
-
+var currentversion = "v3.0"
 function debugFunction() {
     document.getElementById('Status').innerHTML = pdurl1;
 }
@@ -159,7 +159,6 @@ function firstrunFunction2() {
     location.reload()
 }
 function pageLoad() {
-    var currentversion = "v3.0"
     if (getCookie('firstrun') == "") {
         document.getElementById('Status').innerHTML = "Please complete the first run setup below."
         return firstrunFunction();

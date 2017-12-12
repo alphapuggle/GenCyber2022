@@ -1,5 +1,3 @@
-
-//DO NOT REMOVE
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -15,7 +13,6 @@ function getCookie(cname) {
     }
     return "";
 }
-//END OF DO NOT REMOVE
 function firstrunFunction() {
     document.getElementById('pd1').value = getCookie("period1")
     document.getElementById('pd2').value = getCookie("period2")
@@ -293,7 +290,7 @@ function period9() {
         window.location.assign(getCookie('period9type'))
     }
 }
-function period10 {
+function period10() {
     if (getCookie('period9type') != 'math' || getCookie('period9type') != 'science' || getCookie('period9type') != 'other') {
         window.location.assign(pdurl9)
         if (getCookie('period9type') == 'math') {

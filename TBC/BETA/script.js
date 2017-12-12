@@ -1,4 +1,6 @@
 var currentversion = "v3.5-Beta"
+var redirectlocation = "none"
+var windowlocation = "none"
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -164,155 +166,178 @@ function pageLoad() {
         }
     }
 }
+function visibility() {
+    document.getElementById('confirmation').style.display = "inline";
+    document.getElementById('confirmation2').innerHTML = "Click Go to open the classroom.";
+    document.getElementById('confirmationButton').style.display = "inline";
+}
+function confirmation() {
+    window.location.href(redirectlocaion);c
+    if (windowlocation != "") {
+        window.open(windowloction)
+    } else {
+        return false;
+    }
+}
 function period1() {
     var pdurl1 = "https://classroom.google.com/u/0/c/" + getCookie('period1');
     if (getCookie('period1type') == 'math' || getCookie('period1type') == 'science' || getCookie('period1type') == 'other') {
-        window.location.assign(pdurl1)
+        redirectlocation = pdurl1
         if (getCookie('period1type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period1type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period1type'))
+        redirectlocation = getCookie('period1type')
     }
+    return visibility();
 }
 function period2() {
     var pdurl2 = "https://classroom.google.com/u/0/c/" + getCookie('period2');
     if (getCookie('period2type') == 'math' || getCookie('period2type') == 'science' || getCookie('period2type') == 'other') {
-        window.location.assign(pdurl2)
+        redirectlocation = pdurl2
         if (getCookie('period2type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period2type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period2type'))
+        redirectlocation = getCookie('period2type')
     }
+    return visibility();
 }   
 function period3() {
     var pdurl3 = "https://classroom.google.com/u/0/c/" + getCookie('period3');
     if (getCookie('period3type') == 'math' || getCookie('period3type') == 'science' || getCookie('period3type') == 'other') {
-        window.location.assign(pdurl3)
+        redirectlocation = pdurl3
         if (getCookie('period3type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period3type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period3type'))
+        redirectlocation = getCookie('period3type')
     }
+    return visibility();
 }
 function period4() {
     var pdurl4 = "https://classroom.google.com/u/0/c/" + getCookie('period4');
     if (getCookie('period4type') == 'math' || getCookie('period4type') == 'science' || getCookie('period4type') == 'other') {
-        window.location.assign(pdurl4)
+        redirectlocation = pdurl4
         if (getCookie('period4type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period4type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period4type'))
+        redirectlocation = getCookie('period4type')
     }
+    return visibility();
 }
 function period5() {
     var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
     if (getCookie('period5type') == 'math' || getCookie('period5type') == 'science' || getCookie('period5type') == 'other') {
-        window.location.assign(pdurl5)
+        redirectlocation = pdurl5
         if (getCookie('period5type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period5type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period5type'))
+        redirectlocation = getCookie('period5type')
     }
+    return visibility();
 }
 function period6() {
     var pdurl6 = "https://classroom.google.com/u/0/c/" + getCookie('period6');
     if (getCookie('period6type') == 'math' || getCookie('period6type') == 'science' || getCookie('period6type') == 'other') {
-        window.location.assign(pdurl6)
+        redirectlocation = pdurl6
         if (getCookie('period6type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period6type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period6type'))
+        redirectlocation = getCookie('period6type')
     }
+    return visibility();
 }
 function period7() {
     var pdurl7 = "https://classroom.google.com/u/0/c/" + getCookie('period7');
     if (getCookie('period7type') == 'math' || getCookie('period7type') == 'science' || getCookie('period7type') == 'other') {
-        window.location.assign(pdurl7)
+        redirectlocation = pdurl7
         if (getCookie('period7type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period7type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period7type'))
+        redirectlocation = getCookie('period7type')
     }
+    return visibility();
 }
 function period8() {
     var pdurl8 = "https://classroom.google.com/u/0/c/" + getCookie('period8');
     if (getCookie('period8type') == 'math' || getCookie('period8type') == 'science' || getCookie('period8type') == 'other') {
-        window.location.assign(pdurl8)
+        redirectlocation = pdurl8
         if (getCookie('period8type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period8type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period8type'))
+        redirectlocation = getCookie('period8type')
     }
+    return visibility();
 }
 function period9() {
     var pdurl9 = "https://classroom.google.com/u/0/c/" + getCookie('period9');
     if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
-        window.location.assign(pdurl9)
+        redirectlocation = pdurl9
         if (getCookie('period9type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period9type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period9type'))
+        redirectlocation = getCookie('period9type')
     }
+    return visibility();
 }
 function period10() {
     var pdurl10 = "https://classroom.google.com/u/0/c/" + getCookie('period10');
     if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
-        window.location.assign(pdurl9)
+        redirectlocation = pdurl10
         if (getCookie('period9type') == 'math') {
-            window.open('https://www.pearsonsuccessnet.com/')
+            windowlocation = 'https://www.pearsonsuccessnet.com/'
         } else if (getCookie('period9type') == 'science') {
-            window.open('https://my.hrw.com/')
+            windowlocation = 'https://my.hrw.com/'
         } else {
             return false;
         }
     } else {
-        window.location.assign(getCookie('period9type'))
+        redirectlocation = getCookie('period10type')
     }
+    return visibility();
 }
 function classroomLoad() {
     document.getElementById('Status').innerHTML = ""
@@ -381,5 +406,5 @@ function classroomLoad() {
 
 function scriptSuccess() {
     return pageTime();
-    document.getElementById('Status').innerHTML = ""
+    document.getElementById('Status').innerHTML = "";
 }

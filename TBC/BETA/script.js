@@ -227,7 +227,7 @@ function period4() {
 function period5() {
     var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
     if (getCookie('period5type') == 'math' || getCookie('period5type') == 'science' || getCookie('period5type') == 'other') {
-        window.location.assign(pdurl1)
+        window.location.assign(pdurl5)
         if (getCookie('period5type') == 'math') {
             window.open('https://www.pearsonsuccessnet.com/')
         } else if (getCookie('period5type') == 'science') {

@@ -337,7 +337,7 @@ function period10() {
     }
 }
 function visibility() {
-    document.getElementById('confirmation').style.display = "inline";
+    document.getElementById('confirmation').style.visibility = "visible";
 }
 function confirmation() {
     window.location.href(redirectlocaion);c

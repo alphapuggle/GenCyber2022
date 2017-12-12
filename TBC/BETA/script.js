@@ -172,15 +172,16 @@ function period1() {
         redirectlocation = pdurl1
         if (getCookie('period1type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period1type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period1type')
     }
-    return visibility();
 }
 function period2() {
     var pdurl2 = "https://classroom.google.com/u/0/c/" + getCookie('period2');
@@ -188,15 +189,16 @@ function period2() {
         redirectlocation = pdurl2
         if (getCookie('period2type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period2type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period2type')
     }
-    return visibility();
 }   
 function period3() {
     var pdurl3 = "https://classroom.google.com/u/0/c/" + getCookie('period3');
@@ -204,15 +206,16 @@ function period3() {
         redirectlocation = pdurl3
         if (getCookie('period3type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period3type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period3type')
     }
-    return visibility();
 }
 function period4() {
     var pdurl4 = "https://classroom.google.com/u/0/c/" + getCookie('period4');
@@ -220,15 +223,16 @@ function period4() {
         redirectlocation = pdurl4
         if (getCookie('period4type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period4type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period4type')
     }
-    return visibility();
 }
 function period5() {
     var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
@@ -236,15 +240,16 @@ function period5() {
         redirectlocation = pdurl5
         if (getCookie('period5type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period5type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period5type')
     }
-    return visibility();
 }
 function period6() {
     var pdurl6 = "https://classroom.google.com/u/0/c/" + getCookie('period6');
@@ -252,15 +257,16 @@ function period6() {
         redirectlocation = pdurl6
         if (getCookie('period6type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period6type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period6type')
     }
-    return visibility();
 }
 function period7() {
     var pdurl7 = "https://classroom.google.com/u/0/c/" + getCookie('period7');
@@ -268,15 +274,16 @@ function period7() {
         redirectlocation = pdurl7
         if (getCookie('period7type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period7type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period7type')
     }
-    return visibility();
 }
 function period8() {
     var pdurl8 = "https://classroom.google.com/u/0/c/" + getCookie('period8');
@@ -284,15 +291,16 @@ function period8() {
         redirectlocation = pdurl8
         if (getCookie('period8type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period8type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period8type')
     }
-    return visibility();
 }
 function period9() {
     var pdurl9 = "https://classroom.google.com/u/0/c/" + getCookie('period9');
@@ -300,15 +308,16 @@ function period9() {
         redirectlocation = pdurl9
         if (getCookie('period9type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period9type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period9type')
     }
-    return visibility();
 }
 function period10() {
     var pdurl10 = "https://classroom.google.com/u/0/c/" + getCookie('period10');
@@ -316,15 +325,16 @@ function period10() {
         redirectlocation = pdurl10
         if (getCookie('period9type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
+            return visibility();
         } else if (getCookie('period9type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
+            return visibility();
         } else {
-            return false;
+            return visibility();
         }
     } else {
         redirectlocation = getCookie('period10type')
     }
-    return visibility();
 }
 function visibility() {
     document.getElementById('confirmation').style.display = "inline";

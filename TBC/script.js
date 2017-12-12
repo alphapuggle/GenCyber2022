@@ -46,6 +46,8 @@ function firstrunFunction2() {
     var pdv8 = document.getElementById('pd8').value
     var pdv9 = document.getElementById('pd9').value
     var pdv10 = document.getElementById('pd10').value
+    document.getElementById('progressbar').style.width = "33%";
+    document.getElementById('progressbar').innerHTML = "33%";
     document.cookie = "period1=" + pdv1 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period2=" + pdv2 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period3=" + pdv3 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -56,6 +58,8 @@ function firstrunFunction2() {
     document.cookie = "period8=" + pdv8 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period9=" + pdv9 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period10=" + pdv10 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+    document.getElementById('progressbar').style.width = "66%";
+    document.getElementById('progressbar').innerHTML = "66%";
     if (document.getElementById('period1typescience').checked == true) {
         document.cookie = "period1type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period1typemath').checked == true) {
@@ -156,6 +160,8 @@ function firstrunFunction2() {
     } else if (document.getElementById('period10typecustom').checked == true) {
         document.cookie = "period10type=" + document.getElementById('period10customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
+    document.getElementById('progressbar').style.width = "100%";
+    document.getElementById('progressbar').innerHTML = "100%";
     location.reload()
 }
 function pageLoad() {

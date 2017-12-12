@@ -168,8 +168,6 @@ function pageLoad() {
 }
 function visibility() {
     document.getElementById('confirmation').style.display = "inline";
-    document.getElementById('confirmation2').innerHTML = "Click Go to open the classroom.";
-    document.getElementById('confirmationButton').style.display = "inline";
 }
 function confirmation() {
     window.location.href(redirectlocaion);c

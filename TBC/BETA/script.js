@@ -166,17 +166,6 @@ function pageLoad() {
         }
     }
 }
-function visibility() {
-    document.getElementById('confirmation').style.display = "inline";
-}
-function confirmation() {
-    window.location.href(redirectlocaion);c
-    if (windowlocation != "") {
-        window.open(windowloction)
-    } else {
-        return false;
-    }
-}
 function period1() {
     var pdurl1 = "https://classroom.google.com/u/0/c/" + getCookie('period1');
     if (getCookie('period1type') == 'math' || getCookie('period1type') == 'science' || getCookie('period1type') == 'other') {
@@ -336,6 +325,20 @@ function period10() {
         redirectlocation = getCookie('period10type')
     }
     return visibility();
+}
+function visibility() {
+    document.getElementById('confirmation').style.display = "inline";
+}
+function confirmation() {
+    window.location.href(redirectlocaion);c
+    if (windowlocation != "") {
+        window.open(windowloction)
+    } else {
+        return false;
+    }
+}
+function pageDebug() {
+    document.getElementById('btnd').innerHTML = windowlocation
 }
 function classroomLoad() {
     document.getElementById('Status').innerHTML = ""

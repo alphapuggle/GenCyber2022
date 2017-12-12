@@ -165,6 +165,7 @@ function pageLoad() {
     }
 }
 function period1() {
+    var pdurl1 = "https://classroom.google.com/u/0/c/" + getCookie('period1');
     if (getCookie('period1type') != 'math' || getCookie('period1type') != 'science' || getCookie('period1type') != 'other') {
         window.location.assign(pdurl1)
         if (getCookie('period1type') == 'math') {
@@ -179,6 +180,7 @@ function period1() {
     }
 }
 function period2() {
+    var pdurl2 = "https://classroom.google.com/u/0/c/" + getCookie('period2');
     if (getCookie('period2type') != 'math' || getCookie('period2type') != 'science' || getCookie('period2type') != 'other') {
         window.location.assign(pdurl2)
         if (getCookie('period2type') == 'math') {
@@ -193,6 +195,7 @@ function period2() {
     }
 }   
 function period3() {
+    var pdurl3 = "https://classroom.google.com/u/0/c/" + getCookie('period3');
     if (getCookie('period3type') != 'math' || getCookie('period3type') != 'science' || getCookie('period3type') != 'other') {
         window.location.assign(pdurl3)
         if (getCookie('period3type') == 'math') {
@@ -207,6 +210,7 @@ function period3() {
     }
 }
 function period4() {
+    var pdurl4 = "https://classroom.google.com/u/0/c/" + getCookie('period4');
     if (getCookie('period4type') != 'math' || getCookie('period4type') != 'science' || getCookie('period4type') != 'other') {
         window.location.assign(pdurl4)
         if (getCookie('period4type') == 'math') {
@@ -221,6 +225,7 @@ function period4() {
     }
 }
 function period5() {
+    var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
     if (getCookie('period5type') != 'math' || getCookie('period5type') != 'science' || getCookie('period5type') != 'other') {
         window.location.assign(pdurl1)
         if (getCookie('period5type') == 'math') {
@@ -235,6 +240,7 @@ function period5() {
     }
 }
 function period6() {
+    var pdurl6 = "https://classroom.google.com/u/0/c/" + getCookie('period6');
     if (getCookie('period6type') != 'math' || getCookie('period6type') != 'science' || getCookie('period6type') != 'other') {
         window.location.assign(pdurl6)
         if (getCookie('period6type') == 'math') {
@@ -249,6 +255,7 @@ function period6() {
     }
 }
 function period7() {
+    var pdurl7 = "https://classroom.google.com/u/0/c/" + getCookie('period7');
     if (getCookie('period7type') != 'math' || getCookie('period7type') != 'science' || getCookie('period7type') != 'other') {
         window.location.assign(pdurl7)
         if (getCookie('period7type') == 'math') {
@@ -263,6 +270,7 @@ function period7() {
     }
 }
 function period8() {
+    var pdurl8 = "https://classroom.google.com/u/0/c/" + getCookie('period8');
     if (getCookie('period8type') != 'math' || getCookie('period8type') != 'science' || getCookie('period8type') != 'other') {
         window.location.assign(pdurl8)
         if (getCookie('period8type') == 'math') {
@@ -277,6 +285,7 @@ function period8() {
     }
 }
 function period9() {
+    var pdurl9 = "https://classroom.google.com/u/0/c/" + getCookie('period9');
     if (getCookie('period9type') != 'math' || getCookie('period9type') != 'science' || getCookie('period9type') != 'other') {
         window.location.assign(pdurl9)
         if (getCookie('period9type') == 'math') {
@@ -291,6 +300,7 @@ function period9() {
     }
 }
 function period10() {
+    var pdurl10 = "https://classroom.google.com/u/0/c/" + getCookie('period10');
     if (getCookie('period9type') != 'math' || getCookie('period9type') != 'science' || getCookie('period9type') != 'other') {
         window.location.assign(pdurl9)
         if (getCookie('period9type') == 'math') {
@@ -306,26 +316,6 @@ function period10() {
 }
 function classroomLoad() {
     document.getElementById('Status').innerHTML = ""
-    var period1 = getCookie('period1');
-    var period2 = getCookie('period2');
-    var period3 = getCookie('period3');
-    var period4 = getCookie('period4');
-    var period5 = getCookie('period5');
-    var period6 = getCookie('period6');
-    var period7 = getCookie('period7');
-    var period8 = getCookie('period8');
-    var period9 = getCookie('period9');
-    var period10 = getCookie('period10');
-    var pdurl1 = "https://classroom.google.com/u/0/c/" + period1;
-    var pdurl2 = "https://classroom.google.com/u/0/c/" + period2;
-    var pdurl3 = "https://classroom.google.com/u/0/c/" + period3;
-    var pdurl4 = "https://classroom.google.com/u/0/c/" + period4;
-    var pdurl5 = "https://classroom.google.com/u/0/c/" + period5;
-    var pdurl6 = "https://classroom.google.com/u/0/c/" + period6;
-    var pdurl7 = "https://classroom.google.com/u/0/c/" + period7;
-    var pdurl8 = "https://classroom.google.com/u/0/c/" + period8;
-    var pdurl9 = "https://classroom.google.com/u/0/c/" + period9;
-    var pdurl10 = "https://classroom.google.com/u/0/c/" + period10;
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();

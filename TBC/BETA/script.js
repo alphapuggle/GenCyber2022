@@ -1,3 +1,4 @@
+var currentversion = "v3.5-Beta"
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -27,7 +28,6 @@ function firstrunFunction() {
     document.getElementById('Pdls').className = "firstrun";
 }
 function firstrunFunction2() {
-    document.cookie = "firstrun=" + currentversion + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     var pdv1 = document.getElementById('pd1').value
     var pdv2 = document.getElementById('pd2').value
     var pdv3 = document.getElementById('pd3').value
@@ -38,6 +38,7 @@ function firstrunFunction2() {
     var pdv8 = document.getElementById('pd8').value
     var pdv9 = document.getElementById('pd9').value
     var pdv10 = document.getElementById('pd10').value
+    document.cookie = "firstrun=" + currentversion + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period1=" + pdv1 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period2=" + pdv2 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     document.cookie = "period3=" + pdv3 + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -151,7 +152,6 @@ function firstrunFunction2() {
     location.reload()
 }
 function pageLoad() {
-    var currentversion = "v3.0"
     if (getCookie('firstrun') == "") {
         document.getElementById('Status').innerHTML = "Please complete the first run setup below."
         return firstrunFunction();

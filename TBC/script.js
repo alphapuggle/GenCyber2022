@@ -298,7 +298,7 @@ function classroomLoad() {
             }
         } else {
             if (getCookie('period5type') != 'math' || getCookie('period5type') != 'science' || getCookie('period5type') != 'other') {
-                window.location.assign(pdurl1)
+                window.location.assign(pdurl5)
                 if (getCookie('period5type') == 'math') {
                     window.open('https://www.pearsonsuccessnet.com/')
                 } else if (getCookie('period5type') == 'science') {

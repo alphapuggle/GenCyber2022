@@ -345,12 +345,12 @@ function visibility() {
     }
 }
 function confirmation() {
-    window.location.assign(redirectlocation);
     if (windowlocation != "") {
         window.open(windowlocation)
     } else {
         return false;
     }
+    window.location.assign(redirectlocation);
 }
 function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation

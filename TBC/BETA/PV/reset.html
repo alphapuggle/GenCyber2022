@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <title>TBC Reset</title>
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
+    <script>
+      function finishClear() {
+          document.cookie = "firstrun=";
+      }
+      function cookieClear() {
+        if (getCookie('firstrun') == 'yes') {
+          document.getElementById('status').innerHTML = "You were running TBC v1.0 or v1.5.";
+          document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
+          return finishClear();
+        } else if (getCookie('firstrun') == 'false') {
+          document.getElementById('status').innerHTML = "You were on TBC v2.0.";
+          document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
+          return finishClear();
+        } else if (getCookie('firstrun') != ''){
+          document.getElementById('status').innerHTML = "You were on TBC " + getCookie('firstrun');
+          document.getElementById('status2').innerHTML = "Resetting to provide you with a fresh experience";
+          return finishClear();
+        } else if (getCookie('firstrun') == '') {
+          document.getElementById('status').innerHTML = "No recent install of TBC detected.";
+          document.getElementById('status2').innerHTML = "No value has been stored in your cookies. No further action is required.";
+        }
+      }
+       function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+              if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+        return "";
+       }
+    </script>
+    <style>
+      body {
+        margin-top:20px;
+        margin-bottom:20px;
+        margin-left:20px;
+        margin-right:20px;
+      }
+    </style>
+  </head>
+  <body onload="return cookieClear();">
+    <div class="jumbotron">
+      <h1 id="status"></h1>
+      <p id="status2"></p>
+      <button type="button" class="btn btn-primary"onclick="window.location.href = 'http://linuxfan1.github.io/TBC';">Return to TBC</button>
+    </div>
+  </body>
+</html>

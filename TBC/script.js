@@ -28,6 +28,7 @@ function getCookie(cname) {
     return "";
 }
 function firstrunFunction() {
+    window.location.href = "http://google.com";
     document.getElementById('pd1').value = getCookie("period1")
     document.getElementById('pd2').value = getCookie("period2")
     document.getElementById('pd3').value = getCookie("period3")
@@ -332,6 +333,20 @@ function period10() {
         redirectlocation = getCookie('period10type')
     } else {
         redirectlocation = ""
+    }
+}
+function pageLoad() {
+    if (getCookie('firstrun') == "") {
+        document.getElementById('Status').innerHTML = "Please complete the first run setup below."
+        return firstrunFunction();
+    } else if (getCookie('firstrun') != "") {
+        if (getCookie('firstrun') != currentversion) {
+            document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected. The current version is " + currentversion + ", please recomplete the form."
+            return firstrunFunction();
+        } else if (getCookie('period1type') == 'other') {
+            return classroomLoad();
+        } else if (getCookie('period1type') != 'other') {
+            redirectlocation = getCookie('period1type')
     }
 }
 function visibility() {

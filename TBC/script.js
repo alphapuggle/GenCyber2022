@@ -328,6 +328,7 @@ function period10() {
     }
 }
 function visibility() {
+        document.getElementById('confirmation').style.visibility = "visible";
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
         document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById("confirmationbutton").style.visibility = "hidden";

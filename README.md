@@ -12,13 +12,4 @@
     <h3>Issues</h3>
     <p>Issues can be reported at http://github.com/linuxfan1/linuxfan1.github.io/issues</p> 
   </li>
-  <li>
-    <h2> Inspect </h2>
-    <p> Inspect replacement when Google's is blocked. All code owned by the Chromium project at http://chromium.org </p>
-    <h3> Known issues</h3>
-    <p> Known issues with Inspect include, but are not limited to:</p>
-    <ul>
-      <li> Doesn't detect any running modules to inspect, currently rendering it useless </li>
-    </ul>
-  </li>
 </ul>

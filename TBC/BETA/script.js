@@ -342,7 +342,7 @@ function visibility() {
 function confirmation() {
     window.location.assign(redirectlocation);
     if (windowlocation != "") {
-        window.open(windowloction)
+        window.open(windowlocation)
     } else {
         return false;
     }

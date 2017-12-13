@@ -164,20 +164,6 @@ function firstrunFunction2() {
     }
     location.reload()
 }
-function pageLoad() {
-    if (getCookie('firstrun') == "") {
-        document.getElementById('Status').innerHTML = "Please complete the first run setup below."
-        return firstrunFunction();
-    } else if (getCookie('firstrun') != "") {
-        if (getCookie('firstrun') != currentversion) {
-            document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected. The current version is " + currentversion + ", please recomplete the form."
-            return firstrunFunction();
-        } else if (getCookie('period1type') == 'other') {
-            return classroomLoad();
-        } else if (getCookie('period1type') != 'other') {
-            redirectlocation = getCookie('period1type')
-    }
-}
 function period1() {
     if (getCookie('period1type') == 'other') {
         redirectlocation = pdurl1

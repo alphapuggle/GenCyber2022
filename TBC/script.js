@@ -69,8 +69,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period1typeother').checked == true) {
         document.cookie = "period1type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period1typecustom').checked == true) {
-        document.cookie = "period1type=" + document.getElementById('period1customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period2typemath').checked == true) {
         document.cookie = "period2type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -79,8 +77,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period2typeother').checked == true) {
         document.cookie = "period2type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period2typecustom').checked == true) {
-        document.cookie = "period2type=" + document.getElementById('period2customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period3typemath').checked == true) {
         document.cookie = "period3type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -89,8 +85,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period3typeother').checked == true) {
         document.cookie = "period3type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period3typecustom').checked == true) {
-        document.cookie = "period3type=" + document.getElementById('period3customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period4typemath').checked == true) {
         document.cookie = "period4type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -99,8 +93,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period4typeother').checked == true) {
         document.cookie = "period4type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period4typecustom').checked == true) {
-        document.cookie = "period4type=" + document.getElementById('period4customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period5typemath').checked == true) {
         document.cookie = "period5type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -109,8 +101,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period5typeother').checked == true) {
         document.cookie = "period5type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period5typecustom').checked == true) {
-        document.cookie = "period5type=" + document.getElementById('period5customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period6typemath').checked == true) {
         document.cookie = "period6type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -119,8 +109,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period6typeother').checked == true) {
         document.cookie = "period6type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period6typecustom').checked == true) {
-        document.cookie = "period6type=" + document.getElementById('period6customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period7typemath').checked == true) {
         document.cookie = "period7type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -129,8 +117,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period7typeother').checked == true) {
         document.cookie = "period7type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period7typecustom').checked == true) {
-        document.cookie = "period7type=" + document.getElementById('period7customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period8typemath').checked == true) {
         document.cookie = "period8type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -139,8 +125,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period8typeother').checked == true) {
         document.cookie = "period8type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period8typecustom').checked == true) {
-        document.cookie = "period8type=" + document.getElementById('period8customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period9typemath').checked == true) {
         document.cookie = "period9type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -149,8 +133,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period9typeother').checked == true) {
         document.cookie = "period9type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period9typecustom').checked == true) {
-        document.cookie = "period9type=" + document.getElementById('period9customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     if (document.getElementById('period10typemath').checked == true) {
         document.cookie = "period10type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
@@ -159,8 +141,6 @@ function firstrunFunction2() {
 
     } else if (document.getElementById('period10typeother').checked == true) {
         document.cookie = "period10type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period10typecustom').checked == true) {
-        document.cookie = "period10type=" + document.getElementById('period10customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     }
     location.reload()
 }

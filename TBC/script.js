@@ -355,7 +355,12 @@ function visibility() {
     }
 }
 function confirmRedirect() {
-    document.getElementById('Status').innerHTML = "You fucker this shit works";
+    if (windowlocation != "") {
+        window.open(windowlocation);
+        window.location.assign(redirectlocation);
+    } else {
+        window.location.assign(redirectlocation);
+    }
 }
 function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation

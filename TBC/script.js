@@ -223,7 +223,7 @@ function period3() {
         redirectlocation = pdurl3
         windowlocation = 'https://my.hrw.com/'
         return visibility();
-    } else if (getCookie('period3type') != '')
+    } else if (getCookie('period3type') != '')  {
         redirectlocation = getCookie('period3type')
     } else {
         redirectlocation = ""

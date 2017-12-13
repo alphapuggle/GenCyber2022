@@ -339,6 +339,10 @@ function period10() {
 }
 function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
+    if (windowlocation == "") {
+        document.getElementById("confirmationbutton").style.visibility = "hidden";
+        document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";
+    }
 }
 function confirmation() {
     window.location.assign(redirectlocation);

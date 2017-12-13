@@ -179,16 +179,15 @@ function pageLoad() {
     }
 }
 function period1() {
-    if (getCookie('period1type') == 'math' || getCookie('period1type') == 'science' || getCookie('period1type') == 'other') {
+    if (getCookie('period1type') == 'other') {
         redirectlocation = pdurl1
-    }
-    if (getCookie('period1type') == 'math') {
+    } else if (getCookie('period1type') == 'math') {
+        redirectlocation = pdurl1
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period1type') == 'science') {
+        redirectlocation = pdurl1
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period1type') == 'other') {
         return visibility();
     } else if (getCookie('period1type') != '') {
         redirectlocation = getCookie('period1type')
@@ -197,16 +196,15 @@ function period1() {
     }
 }
 function period2() {
-    if (getCookie('period2type') == 'math' || getCookie('period2type') == 'science' || getCookie('period2type') == 'other') {
+    if (getCookie('period2type') == 'other') {
         redirectlocation = pdurl2
-    }
-    if (getCookie('period2type') == 'math') {
+    } else if (getCookie('period2type') == 'math') {
+        redirectlocation = pdurl2
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period2type') == 'science') {
+        redirectlocation = pdurl2
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period2type') == 'other') {
         return visibility();
     } else if (getCookie('period2type') != '') {
         redirectlocation = getCookie('period2type')
@@ -215,16 +213,15 @@ function period2() {
     }
 }
 function period3() {
-    if (getCookie('period3type') == 'math' || getCookie('period3type') == 'science' || getCookie('period3type') == 'other') {
+    if (getCookie('period3type') == 'other') {
         redirectlocation = pdurl3
-    }
-    if (getCookie('period3type') == 'math') {
+    } else if (getCookie('period3type') == 'math') {
+        redirectlocation = pdurl3
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period3type') == 'science') {
+        redirectlocation = pdurl3
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period3type') == 'other') {
         return visibility();
     } else if (getCookie('period3type') != '')
         redirectlocation = getCookie('period3type')
@@ -233,16 +230,15 @@ function period3() {
     }
 }
 function period4() {
-    if (getCookie('period4type') == 'math' || getCookie('period4type') == 'science' || getCookie('period4type') == 'other') {
+    if (getCookie('period4type') == 'other') {
         redirectlocation = pdurl4
-    }
-    if (getCookie('period4type') == 'math') {
+    } else if (getCookie('period4type') == 'math') {
+        redirectlocation = pdurl4
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period4type') == 'science') {
+        redirectlocation = pdurl4
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period4type') == 'other') {
         return visibility();
     } else if (getCookie('period4type') != '') {
         redirectlocation = getCookie('period4type')
@@ -251,16 +247,15 @@ function period4() {
     }
 }
 function period5() {
-    if (getCookie('period5type') == 'math' || getCookie('period5type') == 'science' || getCookie('period5type') == 'other') {
+    if (getCookie('period5type') == 'other') {
         redirectlocation = pdurl5
-    }
-    if (getCookie('period5type') == 'math') {
+    } else if (getCookie('period5type') == 'math') {
+        redirectlocation = pdurl5
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period5type') == 'science') {
+        redirectlocation = pdurl5
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period5type') == 'other') {
         return visibility();
     } else if (getCookie('period5type') != '') {
         redirectlocation = getCookie('period5type')
@@ -269,16 +264,15 @@ function period5() {
     }
 }
 function period6() {
-    if (getCookie('period6type') == 'math' || getCookie('period6type') == 'science' || getCookie('period6type') == 'other') {
+    if (getCookie('period6type') == 'other') {
         redirectlocation = pdurl6
-    }
-    if (getCookie('period6type') == 'math') {
+    } else if (getCookie('period6type') == 'math') {
+        redirectlocation = pdurl6
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period6type') == 'science') {
+        redirectlocation = pdurl6
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period6type') == 'other') {
         return visibility();
     } else if (getCookie('period6type') != '') {
         redirectlocation = getCookie('period6type')
@@ -287,16 +281,15 @@ function period6() {
     }
 }
 function period7() {
-    if (getCookie('period7type') == 'math' || getCookie('period7type') == 'science' || getCookie('period7type') == 'other') {
+    if (getCookie('period7type') == 'other') {
         redirectlocation = pdurl7
-    }
-    if (getCookie('period7type') == 'math') {
+    } else if (getCookie('period7type') == 'math') {
+        redirectlocation = pdurl7
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period7type') == 'science') {
+        redirectlocation = pdurl7
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period7type') == 'other') {
         return visibility();
     } else if (getCookie('period7type') != '') {
         redirectlocation = getCookie('period7type')
@@ -305,16 +298,15 @@ function period7() {
     }
 }
 function period8() {
-    if (getCookie('period8type') == 'math' || getCookie('period8type') == 'science' || getCookie('period8type') == 'other') {
+    if (getCookie('period8type') == 'other') {
         redirectlocation = pdurl8
-    }
-    if (getCookie('period8type') == 'math') {
+    } else if (getCookie('period8type') == 'math') {
+        redirectlocation = pdurl8
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period8type') == 'science') {
+        redirectlocation = pdurl8
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period8type') == 'other') {
         return visibility();
     } else if (getCookie('period8type') != '') {
         redirectlocation = getCookie('period8type')
@@ -323,16 +315,15 @@ function period8() {
     }
 }
 function period9() {
-    if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
+    if (getCookie('period9type') == 'other') {
         redirectlocation = pdurl9
-    }
-    if (getCookie('period9type') == 'math') {
+    } else if (getCookie('period9type') == 'math') {
+        redirectlocation = pdurl9
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period9type') == 'science') {
+        redirectlocation = pdurl9
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period9type') == 'other') {
         return visibility();
     } else if (getCookie('period9type') != '') {
         redirectlocation = getCookie('period9type')
@@ -341,16 +332,15 @@ function period9() {
     }
 }
 function period10() {
-    if (getCookie('period10type') == 'math' || getCookie('period10type') == 'science' || getCookie('period10type') == 'other') {
+    if (getCookie('period10type') == 'other') {
         redirectlocation = pdurl10
-    }
-    if (getCookie('period10type') == 'math') {
+    } else if (getCookie('period10type') == 'math') {
+        redirectlocation = pdurl10
         windowlocation = 'https://www.pearsonsuccessnet.com/'
         return visibility();
     } else if (getCookie('period10type') == 'science') {
+        redirectlocation = pdurl10
         windowlocation = 'https://my.hrw.com/'
-        return visibility();
-    } else if (getCookie('period10type') == 'other') {
         return visibility();
     } else if (getCookie('period10type') != '') {
         redirectlocation = getCookie('period10type')

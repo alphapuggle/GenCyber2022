@@ -354,7 +354,7 @@ function visibility() {
         document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";
     }
 }
-function confirmation() {
+function confirmRedirect() {
     window.location.href = redirectlocation;
 }
 function pageDebug() {

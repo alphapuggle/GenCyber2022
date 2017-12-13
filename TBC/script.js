@@ -1,3 +1,4 @@
+
 var currentversion = "v3.5"
 var redirectlocation = ""
 var windowlocation = ""
@@ -65,6 +66,7 @@ function firstrunFunction2() {
         document.cookie = "period1type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period1typemath').checked == true) {
         document.cookie = "period1type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period1typeother').checked == true) {
         document.cookie = "period1type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period1typecustom').checked == true) {
@@ -74,6 +76,7 @@ function firstrunFunction2() {
         document.cookie = "period2type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period2typescience').checked == true) {
         document.cookie = "period2type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period2typeother').checked == true) {
         document.cookie = "period2type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period2typecustom').checked == true) {
@@ -83,6 +86,7 @@ function firstrunFunction2() {
         document.cookie = "period3type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period3typescience').checked == true) {
         document.cookie = "period3type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period3typeother').checked == true) {
         document.cookie = "period3type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period3typecustom').checked == true) {
@@ -92,6 +96,7 @@ function firstrunFunction2() {
         document.cookie = "period4type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period4typescience').checked == true) {
         document.cookie = "period4type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period4typeother').checked == true) {
         document.cookie = "period4type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period4typecustom').checked == true) {
@@ -101,6 +106,7 @@ function firstrunFunction2() {
         document.cookie = "period5type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period5typescience').checked == true) {
         document.cookie = "period5type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period5typeother').checked == true) {
         document.cookie = "period5type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period5typecustom').checked == true) {
@@ -110,6 +116,7 @@ function firstrunFunction2() {
         document.cookie = "period6type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period6typescience').checked == true) {
         document.cookie = "period6type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period6typeother').checked == true) {
         document.cookie = "period6type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period6typecustom').checked == true) {
@@ -119,6 +126,7 @@ function firstrunFunction2() {
         document.cookie = "period7type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period7typescience').checked == true) {
         document.cookie = "period7type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period7typeother').checked == true) {
         document.cookie = "period7type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period7typecustom').checked == true) {
@@ -128,6 +136,7 @@ function firstrunFunction2() {
         document.cookie = "period8type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period8typescience').checked == true) {
         document.cookie = "period8type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period8typeother').checked == true) {
         document.cookie = "period8type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period8typecustom').checked == true) {
@@ -137,6 +146,7 @@ function firstrunFunction2() {
         document.cookie = "period9type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period9typescience').checked == true) {
         document.cookie = "period9type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period9typeother').checked == true) {
         document.cookie = "period9type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period9typecustom').checked == true) {
@@ -146,6 +156,7 @@ function firstrunFunction2() {
         document.cookie = "period10type=math; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period10typescience').checked == true) {
         document.cookie = "period10type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
+
     } else if (document.getElementById('period10typeother').checked == true) {
         document.cookie = "period10type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period10typecustom').checked == true) {
@@ -179,6 +190,7 @@ function period1() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period1type')
     }
 }
@@ -195,6 +207,7 @@ function period2() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period2type')
     }
 }   
@@ -211,6 +224,7 @@ function period3() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period3type')
     }
 }
@@ -227,6 +241,7 @@ function period4() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period4type')
     }
 }
@@ -243,6 +258,7 @@ function period5() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period5type')
     }
 }
@@ -259,6 +275,7 @@ function period6() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period6type')
     }
 }
@@ -275,6 +292,7 @@ function period7() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period7type')
     }
 }
@@ -291,6 +309,7 @@ function period8() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period8type')
     }
 }
@@ -307,34 +326,40 @@ function period9() {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period9type')
     }
 }
 function period10() {
-    if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
+    if (getCookie('period10type') == 'math' || getCookie('period10type') == 'science' || getCookie('period10type') == 'other') {
         redirectlocation = pdurl10
-        if (getCookie('period9type') == 'math') {
+        if (getCookie('period10type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
-        } else if (getCookie('period9type') == 'science') {
+        } else if (getCookie('period10type') == 'science') {
             windowlocation = 'https://my.hrw.com/'
             return visibility();
         } else {
             return visibility();
         }
     } else {
+        windowlocation = ""
         redirectlocation = getCookie('period10type')
     }
 }
 function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
+    if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
+        document.getElementById("confirmationbutton").style.visibility = "hidden";
+        document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";
+    }
 }
 function confirmRedirect() {
-    window.location.assign(redirectlocation);
     if (windowlocation != "") {
-        window.open(windowlocation)
+        window.open(windowlocation);
+        window.location.assign(redirectlocation);
     } else {
-        return false;
+        window.location.assign(redirectlocation);
     }
 }
 function pageDebug() {
@@ -403,4 +428,9 @@ function classroomLoad() {
         alert("Classes are done for the day. Please try again tomorrow.");
         document.getElementById('Status').innerHTML = "";
     }
+}
+
+function scriptSuccess() {
+    return pageTime();
+    document.getElementById('Status').innerHTML = "";
 }

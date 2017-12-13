@@ -355,7 +355,7 @@ function visibility() {
     }
 }
 function confirmation() {
-    window.location.assign(redirectlocation);
+    window.location.href = redirectlocation;
 }
 function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation

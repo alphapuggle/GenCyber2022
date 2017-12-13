@@ -348,8 +348,11 @@ function period10() {
     }
 }
 function visibility() {
-    document.getElementById('confirmation').style.visibility = "visible";
+    if (getCookie('period9type') != 'math' && getCookie('period9type') != 'science' && getCookie('period9type') != 'other' && getCookie('period9type') != '') {
+        document.getElementById('confirmation').style.visibility = "visible";
+    }
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
+        document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById("confirmationbutton").style.visibility = "hidden";
         document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";
     }

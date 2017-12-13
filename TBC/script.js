@@ -347,10 +347,10 @@ function visibility() {
 function confirmation() {
     if (windowlocation != "") {
         window.open(windowlocation)
-    } else {
-        return false;
-    }
     window.location.assign(redirectlocation);
+    } else {
+    window.location.assign(redirectlocation);
+    }
 }
 function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation

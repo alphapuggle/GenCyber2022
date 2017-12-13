@@ -44,10 +44,8 @@
     </head>
     <body onload="return pageLoad();">
         <div class="jumbotron" id="confirmation" style="visibility:hidden;">
-            <form onsubmit="confirmRedirect();">
-                <h3 id="confirmationtext"> Press Ok to continue to the classroom. </h3>
-                <button id="confirmationbutton" class="btn btn-primary" type="submit">Ok</button>
-            </form>
+            <h3 id="confirmationtext"> Press Ok to continue to the classroom. </h3>
+            <button id="confirmationbutton" class="btn btn-primary" type="submit" onclick="return confirmRedirect();">Ok</button>
         </div>
         <p id="Status"></p>
         <p id="Debug"></p>

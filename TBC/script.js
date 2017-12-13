@@ -329,7 +329,7 @@ function period10() {
 function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
 }
-function confirmation() {
+function confirmRedirect() {
     window.location.assign(redirectlocation);
     if (windowlocation != "") {
         window.open(windowlocation)

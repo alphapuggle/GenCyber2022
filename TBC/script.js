@@ -38,7 +38,7 @@ function firstrunFunction() {
     document.getElementById('pd8').value = getCookie("period8")
     document.getElementById('pd9').value = getCookie("period9")
     document.getElementById('pd10').value = getCookie("period10")
-    document.getElementById('Pdls').className = "firstrun";
+    document.getElementById('Pdls').style.visibility = "visible";
 }
 function firstrunFunction2() {
     var pdv1 = document.getElementById('pd1').value

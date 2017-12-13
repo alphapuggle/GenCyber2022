@@ -355,7 +355,7 @@ function visibility() {
     }
 }
 function confirmRedirect() {
-    window.location.href = redirectlocation;
+    document.getElementById('Status').innerHTML = "You fucker this shit works";
 }
 function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation

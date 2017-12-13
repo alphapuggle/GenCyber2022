@@ -39,27 +39,36 @@
                 margin-left:20px;
                 margin-right:20px;
             }
+            .bg-navbar {
+                background-color:#c43e00!important
+            }
+            a.bg-navbar:focus, a.bg-navbar:hover {
+                background-color:#ce4800!important
+            }
+            .bg-jumbotron {
+                background-color:#ff6f00!important
+            }
+            a.bg-jumbotron:focus, a.bg-jumbotron:hover {
+                background-color:#f56500!important
+            }
         </style>
         <script src="https://linuxfan1.github.io/TBC/BETA/PV/script.js"></script>
     </head>
     <body onload="return pageLoad();">
-        <div class="jumbotron" id="confirmation" style="visibility:hidden;">
-            <h3 id="confirmationtext"> Press "Ok" to continue to the classroom. </h3>
-            <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
-            <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="window.location.href = 'http://linuxfan1.github.io/TBC/BETA/PV/reset';">Reset TBC</button>
+        <nav class="navbar bg-navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><p class="nav-link" href="/TBC/BETA/PV/">TBC</p></li>
+                <li class="nav-item"><p class="nav-link" href="/TBC/BETA/PV/reset">Reset</p></li>
+                <li class="nav-item"><p class="nav-link" href="/TBC/cookiewriter">Cookie Editor (dev)</p></li>
+            </ul>
+        </nav>
+        <div class="jumbotron bg-jumbotron" id="confirmation" style="visibility:hidden;">
+            <h3 id="confirmationtext" style="visibility:hidden;"> Press "Ok" to continue to the classroom. </h3>
+            <button id="confirmationbutton" style="visibility:hidden;" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
         </div>
         <p id="Status"></p>
         <p id="Debug"></p>
-        <form onsubmit="return firstrunFunction2();" class="firstrunfalse" id="Pdls">
-            <div class="jumbotron">
-                <h2>TBC</h2> 
-                <h3>First run:</h3>
-                    <p>TBC is a useful application for having one bookmark for all of your google classrooms.
-                    <br>To setup, please type the class code for each classroom.
-                    <br>EX: <i>https://classroom.google.com/u/0/c/<strong>***************</strong></i>
-                    <br>Please <strong>only</strong> put the end code and select the class type or else the code will fail to run properly as it will assume it was a custom url.</p>
-                <p>If you want to open a page other than Google Classroom, select the "Custom Url" Option and input a URL into the Custom URL Box.</p><br>
-            </div>
+        <form onsubmit="return firstrunFunction2();" style="visibility:hidden;" id="Pdls">
             <div class="jumbotron">
                 <!--Period 1-->
                 <h3>Period 1</h3>

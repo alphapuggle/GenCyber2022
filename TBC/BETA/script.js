@@ -1,6 +1,16 @@
 var currentversion = "v3.5-Beta"
 var redirectlocation = "none"
 var windowlocation = "none"
+var pdurl1 = "https://classroom.google.com/u/0/c/" + getCookie('period1');
+var pdurl2 = "https://classroom.google.com/u/0/c/" + getCookie('period2');
+var pdurl3 = "https://classroom.google.com/u/0/c/" + getCookie('period3');
+var pdurl4 = "https://classroom.google.com/u/0/c/" + getCookie('period4');
+var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
+var pdurl6 = "https://classroom.google.com/u/0/c/" + getCookie('period6');
+var pdurl7 = "https://classroom.google.com/u/0/c/" + getCookie('period7');
+var pdurl8 = "https://classroom.google.com/u/0/c/" + getCookie('period8');
+var pdurl9 = "https://classroom.google.com/u/0/c/" + getCookie('period9');
+var pdurl10 = "https://classroom.google.com/u/0/c/" + getCookie('period10');
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -167,7 +177,6 @@ function pageLoad() {
     }
 }
 function period1() {
-    var pdurl1 = "https://classroom.google.com/u/0/c/" + getCookie('period1');
     if (getCookie('period1type') == 'math' || getCookie('period1type') == 'science' || getCookie('period1type') == 'other') {
         redirectlocation = pdurl1
         if (getCookie('period1type') == 'math') {
@@ -184,7 +193,6 @@ function period1() {
     }
 }
 function period2() {
-    var pdurl2 = "https://classroom.google.com/u/0/c/" + getCookie('period2');
     if (getCookie('period2type') == 'math' || getCookie('period2type') == 'science' || getCookie('period2type') == 'other') {
         redirectlocation = pdurl2
         if (getCookie('period2type') == 'math') {
@@ -201,7 +209,6 @@ function period2() {
     }
 }   
 function period3() {
-    var pdurl3 = "https://classroom.google.com/u/0/c/" + getCookie('period3');
     if (getCookie('period3type') == 'math' || getCookie('period3type') == 'science' || getCookie('period3type') == 'other') {
         redirectlocation = pdurl3
         if (getCookie('period3type') == 'math') {
@@ -218,7 +225,6 @@ function period3() {
     }
 }
 function period4() {
-    var pdurl4 = "https://classroom.google.com/u/0/c/" + getCookie('period4');
     if (getCookie('period4type') == 'math' || getCookie('period4type') == 'science' || getCookie('period4type') == 'other') {
         redirectlocation = pdurl4
         if (getCookie('period4type') == 'math') {
@@ -235,7 +241,6 @@ function period4() {
     }
 }
 function period5() {
-    var pdurl5 = "https://classroom.google.com/u/0/c/" + getCookie('period5');
     if (getCookie('period5type') == 'math' || getCookie('period5type') == 'science' || getCookie('period5type') == 'other') {
         redirectlocation = pdurl5
         if (getCookie('period5type') == 'math') {
@@ -252,7 +257,6 @@ function period5() {
     }
 }
 function period6() {
-    var pdurl6 = "https://classroom.google.com/u/0/c/" + getCookie('period6');
     if (getCookie('period6type') == 'math' || getCookie('period6type') == 'science' || getCookie('period6type') == 'other') {
         redirectlocation = pdurl6
         if (getCookie('period6type') == 'math') {
@@ -269,7 +273,6 @@ function period6() {
     }
 }
 function period7() {
-    var pdurl7 = "https://classroom.google.com/u/0/c/" + getCookie('period7');
     if (getCookie('period7type') == 'math' || getCookie('period7type') == 'science' || getCookie('period7type') == 'other') {
         redirectlocation = pdurl7
         if (getCookie('period7type') == 'math') {
@@ -286,7 +289,6 @@ function period7() {
     }
 }
 function period8() {
-    var pdurl8 = "https://classroom.google.com/u/0/c/" + getCookie('period8');
     if (getCookie('period8type') == 'math' || getCookie('period8type') == 'science' || getCookie('period8type') == 'other') {
         redirectlocation = pdurl8
         if (getCookie('period8type') == 'math') {
@@ -303,7 +305,6 @@ function period8() {
     }
 }
 function period9() {
-    var pdurl9 = "https://classroom.google.com/u/0/c/" + getCookie('period9');
     if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
         redirectlocation = pdurl9
         if (getCookie('period9type') == 'math') {
@@ -320,7 +321,6 @@ function period9() {
     }
 }
 function period10() {
-    var pdurl10 = "https://classroom.google.com/u/0/c/" + getCookie('period10');
     if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other') {
         redirectlocation = pdurl10
         if (getCookie('period9type') == 'math') {

@@ -349,6 +349,7 @@ function period10() {
 }
 function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
+    documnet.getElementById('Status').innerHTML = redirectlocation;
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
         document.getElementById("confirmationbutton").style.visibility = "hidden";
         document.getElementById("confirmation").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";

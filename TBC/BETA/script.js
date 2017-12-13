@@ -340,7 +340,7 @@ function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
 }
 function confirmation() {
-    window.location.href(redirectlocation);
+    window.location.assign(redirectlocation);
     if (windowlocation != "") {
         window.open(windowloction)
     } else {

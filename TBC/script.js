@@ -38,7 +38,10 @@ function firstrunFunction() {
     document.getElementById('pd8').value = getCookie("period8")
     document.getElementById('pd9').value = getCookie("period9")
     document.getElementById('pd10').value = getCookie("period10")
-    document.getElementById('Pdls').className = "firstrun";
+    document.getElementById('Pdls').style.visibility = "visible";
+    document.getElementById('confirmation').innerHTML = "<h2>TBC</h2><h3>First run:</h3><p>TBC is a useful application for having one bookmark for all of your google classrooms.<br>To setup, please type the class code for each classroom.<br>EX: <i>https://classroom.google.com/u/0/c/<strong>***************</strong></i><br>Please <strong>only</strong> put the end code and select the class type or else the code will fail to run properly as it will assume it was a custom url.</p><p>If you want to open a page other than Google Classroom, select the 'Custom Url' Option and input a URL into the Custom URL Box.</p><br>"
+    document.getElementById('confirmation').style.visibility = "visible;
+    document.getElementById('confirmationbutton').style.visibility = "hidden";
 }
 function firstrunFunction2() {
     var pdv1 = document.getElementById('pd1').value
@@ -349,6 +352,8 @@ function period10() {
 }
 function visibility() {
     document.getElementById('confirmation').style.visibility = "visible";
+    document.getElementById("confirmationbutton").style.visibility = "visible";
+    document.getElementById("confirmationtext").style.visibility = "visible";
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
         document.getElementById("confirmationbutton").style.visibility = "hidden";
         document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it at cookiewriter";
@@ -361,9 +366,6 @@ function confirmRedirect() {
     } else {
         window.location.assign(redirectlocation);
     }
-}
-function pageDebug() {
-    document.getElementById('btnd').innerHTML = windowlocation
 }
 function classroomLoad() {
     document.getElementById('Status').innerHTML = ""
@@ -428,9 +430,4 @@ function classroomLoad() {
         alert("Classes are done for the day. Please try again tomorrow.");
         document.getElementById('Status').innerHTML = "";
     }
-}
-
-function scriptSuccess() {
-    return pageTime();
-    document.getElementById('Status').innerHTML = "";
 }

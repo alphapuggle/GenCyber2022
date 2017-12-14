@@ -39,122 +39,105 @@
                 margin-left:20px;
                 margin-right:20px;
             }
-            .bg-navbar {
-                background-color:#c43e00!important
-            }
-            a.bg-navbar:focus, a.bg-navbar:hover {
-                background-color:#ce4800!important
-            }
-            .bg-jumbotron {
-                background-color:#ff6f00!important
-            }
-            a.bg-jumbotron:focus, a.bg-jumbotron:hover {
-                background-color:#f56500!important
-            }
         </style>
-        <script src="https://linuxfan1.github.io/TBC/BETA/PV/script.js"></script>
+        <script src="https://linuxfan1.github.io/TBC/script.js"></script>
     </head>
     <body onload="return pageLoad();">
-        <nav class="navbar navbar-expand-sm bg-navbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/TBC/BETA/PV/">TBC</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/TBC/BETA/PV/reset">Reset</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/TBC/cookiewriter">Cookie Editor (dev)</a>
-                </li>
-            </ul>
-        </nav>
         <div class="jumbotron" id="confirmation" style="visibility:hidden;">
-            <h3 id="confirmationtext" style="visibility:hidden;"> Press "Ok" to continue to the classroom. </h3>
-            <button id="confirmationbutton" style="visibility:hidden;" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
+            <h3 id="confirmationtext"> Press "Ok" to continue to the classroom. </h3>
+            <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
+            <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="window.location.href = 'http://linuxfan1.github.io/TBC/reset';">Reset TBC</button>
         </div>
         <p id="Status"></p>
         <p id="Debug"></p>
-        <form onsubmit="return firstrunFunction2();" style="visibility:hidden;" id="Pdls">
+        <form onsubmit="return firstrunFunction2();" class="firstrunfalse" id="Pdls">
+            <div class="jumbotron">
+                <h2>TBC</h2> 
+                <h3>First run:</h3>
+                    <p>TBC is a useful application for having one bookmark for all of your google classrooms.
+                    <br>To setup, please type the class code for each classroom.
+                    <br>EX: <i>https://classroom.google.com/u/0/c/<strong>***************</strong></i>
+                    <br>Please <strong>only</strong> put the end code and select the class type or else the code will fail to run properly as it will assume it was a custom url.</p>
+                <p>If you want to open a page other than Google Classroom, select the "Custom Url" Option and input a URL into the Custom URL Box.</p><br>
+            </div>
             <div class="jumbotron">
                 <!--Period 1-->
                 <h3>Period 1</h3>
-                <input class="form-control" type="text" id="pd1" placeholder="Period 1"><br>
+                <input class="form-control" type="text" id="pd1" placeholder="Period 1">
                 <input class="radio" type="radio" name="period1" id="period1typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period1" id="period1typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period1" id="period1typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period1" id="period1typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period1customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period1" id="period1typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period1customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 2-->
                 <h3>Period 2</h3>
-                <input class="form-control" type="text" id="pd2" placeholder="Period 2"><br>
+                <input class="form-control" type="text" id="pd2" placeholder="Period 2">
                 <input class="radio" type="radio" name="period2" id="period2typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period2" id="period2typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period2" id="period2typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period2" id="period2typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period2customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period2" id="period2typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period2customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 3-->
                 <h3>Period 3</h3>
-                <input class="form-control" type="text" id="pd3" placeholder="Period 3"><br>
+                <input class="form-control" type="text" id="pd3" placeholder="Period 3">
                 <input class="radio" type="radio" name="period3" id="period3typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period3" id="period3typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period3" id="period3typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period3" id="period3typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period3customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period3" id="period3typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period3customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 4-->
                 <h3>Period 4</h3>
-                <input class="form-control" type="text" id="pd4" placeholder="Period 4"><br>
+                <input class="form-control" type="text" id="pd4" placeholder="Period 4">
                 <input class="radio" type="radio" name="period4" id="period4typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period4" id="period4typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period4" id="period4typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period4" id="period4typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period4customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period4" id="period4typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period4customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 5-->
                 <h3>Period 5</h3>
-                <input class="form-control" type="text" id="pd5" placeholder="Period 5"><br>
+                <input class="form-control" type="text" id="pd5" placeholder="Period 5">
                 <input class="radio" type="radio" name="period5" id="period5typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period5" id="period5typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period5" id="period5typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period5" id="period5typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period5customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period5" id="period5typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period5customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 6-->
                 <h3>Period 6</h3>
                 <input class="form-control" type="text" id="pd6" placeholder="Period 6"><br>
                 <input class="radio" type="radio" name="period6" id="period6typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period6" id="period6typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period6" id="period6typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period6" id="period6typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period6customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period6" id="period6typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period6customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 7-->
                 <h3>Period 7</h3>
-                <input class="form-control" type="text" id="pd7" placeholder="Period 7"><br>
+                <input class="form-control" type="text" id="pd7" placeholder="Period 7">
                 <input class="radio" type="radio" name="period7" id="period7typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period7" id="period7typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period7" id="period7typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period7" id="period7typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period7customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period7" id="period7typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period7customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 8-->
                 <h3>Period 8</h3>
-                <input class="form-control" type="text" id="pd8" placeholder="Period 8"><br>
+                <input class="form-control" type="text" id="pd8" placeholder="Period 8">
                 <input class="radio" type="radio" name="period8" id="period8typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period8" id="period8typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period8" id="period8typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period8" id="period8typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period8customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period8" id="period8typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period8customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 9-->
                 <h3>Period 9</h3>
-                <input class="form-control" type="text" id="pd9" placeholder="Period 9"><br>
+                <input class="form-control" type="text" id="pd9" placeholder="Period 9">
                 <input class="radio" type="radio" name="period9" id="period9typemath" value="Math">Math<br>
                 <input class="radio" type="radio" name="period9" id="period9typescience" value="Science">Science<br>
                 <input class="radio" type="radio" name="period9" id="period9typeother" value="Other">Other<br>
-                <input class="radio" type="radio" name="period9" id="period9typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period9customurl" placeholder="Custom Url"><br><br>
+                <!--<input class="radio" type="radio" name="period9" id="period9typecustom" value="Custom">Custom URL:
+                <input class="form-control" type="text"id="period9customurl" placeholder="Custom Url"><br><br>-->
                 <!--Period 10-->
                 <h3>Period 10</h3>
-                <input class="form-control" type="text" id="pd10" placeholder="Period 10"><br>
+                <input class="form-control" type="text" id="pd10" placeholder="Period 10">
                 <input class="radio" type="radio" name="period10" id="period10typemath" value="Math">Algebra<br>
                 <input class="radio" type="radio" name="period10" id="period10typeother" value="Other">Academic Advisor<br>
-                <input class="radio" type="radio" name="period10" id="period10typecustom" value="Custom">Custom URL:
-                <input class="form-control" type="text"id="period10customurl" placeholder="Custom Url"><br><br>
                 <button type="submit" class="btn btn-secondary" id="submitFirstrun">Submit</button>
             </div>
         </form>

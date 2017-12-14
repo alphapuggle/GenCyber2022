@@ -237,57 +237,57 @@ function classroomLoad() {
     var m = d.getMinutes();
     if (h == 9) {
         if (m >= 30) {
-            if (m <= 50) {
-              return period1();
-            }
+            return period1();
+        } else if (m <= 50) {
+            return period1();
         } else if (m >= 50) {
             return period2();
+        } else {
+            alert("School hasn't Begun, please try after 9:30.")
         }
     } else if (h == 10) {
         if (m <= 14) {
             return period2();
-        } else if (m >= 15) {
-          if (m <= 38) {
-            return period3();
-        } else if (m >= 39) {
-           return period4();
-        }
-    } else if (h == 11) {
-        if (m <= 22) {
-            return period4();
-        } else {
-            return period5();
-        }
-    } else if (h == 11) {
-        if (m <= 22) {
-            return period5();
-        } else if (m >= 23) {
-            if (m <= 46) {
-                return period6();
-            } else if (m >= 47) {
-                return period7();
+        } else if (m >= 14) {
+            if (m <= 38) {
+                return period3();
+            } else if (m >= 38) {
+                return period4();
             }
+        } 
+    } else if (h == 11) {
+        if (m <= 2) {
+            return period4();
+        } else if (m <= 36) {
+            return period5();
+        } else if (m >= 36) {
+            return period6();
         }
     } else if (h == 12) {
-        if (m <= 31) {
+        if (m <= 10) {
+            return period6();
+        } else if (m <= 44) {
             return period7();
-        } else if (m >= 32) {
+        } else if (m >= 44) {
+            return period8();
         }
     } else if (h == 13) {
-        if (m <= 14) {
+        if (m <= 18) {
             return period8();
-        } else if (m >= 15) {
+        } else if (m <= 52) {
             return period9();
+        } else if (m >= 52) {
+            return period10();
         }
     } else if (h == 14) {
-        if (m <= 34) {
+        if (m <= 35) {
             return period10();
-        } else {
-            alert("Classes are done for the day. Please try again tomorrow.");
-            document.getElementById('Status').innerHTML = "";
+        } else if (m >= 35) {
+            alert("Classes are done for today. Please use normal TBC tomorrow.")
         }
+    } else if (h >= 15) {
+        alert("Classes are done for today. Please use normal TBC tomorrow")
     } else {
-        alert("Classes are done for the day. Please try again tomorrow.");
-        document.getElementById('Status').innerHTML = "";
+        alert("School hasn't begun, please try after 9:30")
     }
 }

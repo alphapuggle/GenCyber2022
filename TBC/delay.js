@@ -27,16 +27,13 @@ function getCookie(cname) {
     }
     return "";
 }
-function firstrunFunction() {
-    document.getElementById('Pdls').className = "firstrun";
-}
 function pageLoad() {
     if (getCookie('firstrun') == "") {
-        return firstrunFunction();
+        document.getElementById('Pdls').className = "firstrun";
     } else if (getCookie('firstrun') != "") {
         if (getCookie('firstrun') != currentversion) {
             document.getElementById('Status').innerHTML = "TBC " + getCookie('firstrun') + " detected. The current version is " + currentversion + ". Please complete the firstrun form <a href='/TBC'>here</a>."
-            return firstrunFunction();
+            document.getElementById('Pdls').className = "firstrun";
         } else {
             return classroomLoad();
         }
@@ -234,17 +231,14 @@ function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation
 }
 function classroomLoad() {
-    document.getElementById('Status').innerHTML = ""
+    document.getElementById('Status').innerHTML = "Working..."
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
     if (h == "9") {
         if (m >= 30) {
+            if (m <= 50) {
            return period1();
-        }
-    } else if (h == 9) {
-        if (m <= 50) {
-            return period1();
         } else if (m >= 50) {
             return period2();
         }

@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51765657-3"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-51765657-3');
+        </script>
+        <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
+        <title>Time Based Classroom</title>
+        <style>
+            form.firstrun {
+                display: inline;
+            }
+            form.firstrunfalse {
+                display: none;
+            }
+            div.body {
+                margin-top:20px;
+                margin-bottom:20px;
+                margin-left:20px;
+                margin-right:20px;
+            }
+        </style>
+        <script src="https://linuxfan1.github.io/TBC/delay.js"></script>
+    </head>
+    <body onload="return pageLoad();">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
+            <a class="navbar-brand" href="/">Linuxfan1</a>
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="/TBC">TBC</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbar-toggle" data-toggle="dropdown">TBC Beta</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/TBC/BETA/">Stable Beta</a>
+                        <a class="dropdown-item" href="/TBC/BETA/PV">Bleeding Edge</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="body">
+            <div class="jumbotron" id="confirmation" style="visibility:hidden;">
+                <h3 id="confirmationtext"> Press "Ok" to continue to the classroom. </h3>
+                <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
+                <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="window.location.href = 'http://linuxfan1.github.io/TBC/reset';">Reset TBC</button>
+            </div>
+            <p id="Status"></p>
+            <p id="Pdls" class="firstrunfalse">This is meant for 2hr delay schedules. You haven't setup TBC yet. Please do so <a href="/TBC"here</a></p>
+        </div>
+    </body>
+</html>

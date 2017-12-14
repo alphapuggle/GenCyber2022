@@ -27,10 +27,10 @@
         <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">
         <title>Time Based Classroom</title>
         <style>
-            firstrun {
+            div.firstrun {
                 display: inline;
             }
-            firstrunfalse {
+            div.firstrunfalse {
                 display: none;
             }
             div.body {
@@ -57,13 +57,13 @@
             </ul>
         </nav>
         <div class="body">
+            <p id="Pdls" class="firstrunfalse">This is meant for 2hr delay schedules. You haven't setup TBC yet. Please do so <a href="/TBC">here</a></p>
             <div class="jumbotron" id="confirmation" style="visibility:hidden;">
                 <h3 id="confirmationtext"> Press "Ok" to continue to the classroom. </h3>
                 <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="return confirmRedirect();">Ok</button>
                 <button id="confirmationbutton" class="btn btn-primary" type="button" onclick="window.location.href = 'http://linuxfan1.github.io/TBC/reset';">Reset TBC</button>
             </div>
             <p id="Status"></p>
-            <p id="Pdls" class="firstrunfalse">This is meant for 2hr delay schedules. You haven't setup TBC yet. Please do so <a href="/TBC"here</a></p>
         </div>
     </body>
 </html>

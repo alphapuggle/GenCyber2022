@@ -235,10 +235,11 @@ function classroomLoad() {
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
-    if (h == "9") {
+    if (h == 9) {
         if (m >= 30) {
             if (m <= 50) {
-           return period1();
+              return period1();
+            }
         } else if (m >= 50) {
             return period2();
         }
@@ -289,9 +290,4 @@ function classroomLoad() {
         alert("Classes are done for the day. Please try again tomorrow.");
         document.getElementById('Status').innerHTML = "";
     }
-}
-
-function scriptSuccess() {
-    return pageTime();
-    document.getElementById('Status').innerHTML = "";
 }

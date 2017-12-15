@@ -93,7 +93,7 @@ function firstrunFunction2() {
         document.cookie = "period3type=science; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else if (document.getElementById('period3typeother').checked == true) {
         document.cookie = "period3type=other; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
-    } else if (document.getElementById('period3ctypeustom').checked == true) {
+    } else if (document.getElementById('period3typeustom').checked == true) {
         document.cookie = "period3type=custom; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
         document.cookie = "period3customurl=" + document.getElementById('period3customurl').value + "; expires=Mon, 18 Jun 2018 12:00:00 GMT-0400 EDT;";
     } else {

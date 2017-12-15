@@ -410,10 +410,11 @@ function period10() {
     }
 }
 function visibility() {
-    document.getElementById('confirmation').style.visibility = "visible";
     if (pdn == "custom") {
+        document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period website."
     } else {
+        document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
     }
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {

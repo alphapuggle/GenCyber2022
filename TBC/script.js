@@ -200,7 +200,7 @@ function pageLoad() {
 }
 function period1() {
     period = "1st"
-    if (getCookie('period1type') == 'math' || getCookie('period1type') == 'science' || getCookie('period1type') == 'other' || getCookie('period1type') = 'custom') {
+    if (getCookie('period1type') != '') {
         redirectlocation = pdurl1
         if (getCookie('period1type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
@@ -220,8 +220,8 @@ function period1() {
 }
 function period2() {
     period = "2nd"
-    if (getCookie('period2type') == 'math' || getCookie('period2type') == 'science' || getCookie('period2type') == 'other' || getCookie('period2type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period2type') != '') {
+        redirectlocation = pdurl2
         if (getCookie('period2type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -235,13 +235,13 @@ function period2() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl2
     }
 }
 function period3() {
     period = "3rd"
-    if (getCookie('period3type') == 'math' || getCookie('period3type') == 'science' || getCookie('period3type') == 'other' || getCookie('period3type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period3type') != '') {
+        redirectlocation = pdurl3
         if (getCookie('period3type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -255,13 +255,13 @@ function period3() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl3
     }
 }
 function period4() {
     period = "4th"
-    if (getCookie('period4type') == 'math' || getCookie('period4type') == 'science' || getCookie('period4type') == 'other' || getCookie('period4type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period4type') != '') {
+        redirectlocation = pdurl4
         if (getCookie('period4type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -275,13 +275,13 @@ function period4() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl4
     }
 }
 function period5() {
     period = "5th"
-    if (getCookie('period5type') == 'math' || getCookie('period5type') == 'science' || getCookie('period5type') == 'other' || getCookie('period5type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period5type') != '') {
+        redirectlocation = pdurl5
         if (getCookie('period5type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -295,13 +295,13 @@ function period5() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl5
     }
 }
 function period6() {
     period = "6th"
-    if (getCookie('period6type') == 'math' || getCookie('period6type') == 'science' || getCookie('period6type') == 'other' || getCookie('period6type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period6type') != '') {
+        redirectlocation = pdurl6
         if (getCookie('period6type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -315,13 +315,13 @@ function period6() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl6
     }
 }
 function period7() {
     period = "7th"
-    if (getCookie('period7type') == 'math' || getCookie('period7type') == 'science' || getCookie('period7type') == 'other' || getCookie('period7type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period7type') != '') {
+        redirectlocation = pdurl7
         if (getCookie('period7type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -335,13 +335,13 @@ function period7() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl7
     }
 }
 function period8() {
     period = "8th"
-    if (getCookie('period8type') == 'math' || getCookie('period8type') == 'science' || getCookie('period8type') == 'other' || getCookie('period8type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period8type') != '') {
+        redirectlocation = pdurl8
         if (getCookie('period8type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -355,13 +355,13 @@ function period8() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl8
     }
 }
 function period9() {
     period = "9th"
-    if (getCookie('period9type') == 'math' || getCookie('period9type') == 'science' || getCookie('period9type') == 'other' || getCookie('period9type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period9type') != '') {
+        redirectlocation = pdurl9
         if (getCookie('period9type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -375,13 +375,13 @@ function period9() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl9
     }
 }
 function period10() {
     period = "10th"
-    if (getCookie('period10type') == 'math' || getCookie('period10type') == 'science' || getCookie('period10type') == 'other' || getCookie('period10type') = 'custom') {
-        redirectlocation = pdurl1
+    if (getCookie('period10type') != '') {
+        redirectlocation = pdurl10
         if (getCookie('period10type') == 'math') {
             windowlocation = 'https://www.pearsonsuccessnet.com/'
             return visibility();
@@ -395,7 +395,7 @@ function period10() {
             return visibility();
         }
     } else {
-        redirectlocation = pdurl1
+        redirectlocation = pdurl10
     }
 }
 function visibility() {

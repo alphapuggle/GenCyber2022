@@ -410,12 +410,13 @@ function period10() {
     }
 }
 function visibility() {
-        document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
+        document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
         document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById("confirmationbutton").style.visibility = "hidden";
         document.getElementById("confirmationtext").innerHTML = "No code was specified for this period. If this is incorrect, rewrite it <a href='/TBC/cookiewriter'>here</a>.";
     } else {
+        document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
         document.getElementById('confirmation').style.visibility = "visible";
     }
 }

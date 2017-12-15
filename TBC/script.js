@@ -410,13 +410,7 @@ function period10() {
     }
 }
 function visibility() {
-    if (pdn == "custom") {
-        document.getElementById('confirmation').style.visibility = "visible";
-        document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period website."
-    } else {
-        document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
-    }
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
         document.getElementById('confirmation').style.visibility = "visible";
         document.getElementById("confirmationbutton").style.visibility = "hidden";

@@ -465,6 +465,7 @@ function classroomLoad() {
         if (m <= 31) {
             return period7();
         } else if (m >= 32) {
+            return period8();
         }
     } else if (h == 13) {
         if (m <= 14) {

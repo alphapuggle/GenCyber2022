@@ -242,7 +242,6 @@ function pageDebug() {
     document.getElementById('btnd').innerHTML = windowlocation
 }
 function classroomLoad() {
-    document.getElementById('Status').innerHTML = "Working..."
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();

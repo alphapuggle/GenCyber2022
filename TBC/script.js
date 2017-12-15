@@ -200,6 +200,7 @@ function pageLoad() {
 }
 function period1() {
     period = "1st"
+    pdn = "1"
     if (getCookie('period1type') != '') {
         redirectlocation = pdurl1
         if (getCookie('period1type') == 'math') {
@@ -220,6 +221,7 @@ function period1() {
 }
 function period2() {
     period = "2nd"
+    pdn = "2"
     if (getCookie('period2type') != '') {
         redirectlocation = pdurl2
         if (getCookie('period2type') == 'math') {
@@ -240,6 +242,7 @@ function period2() {
 }
 function period3() {
     period = "3rd"
+    pdn = "3"
     if (getCookie('period3type') != '') {
         redirectlocation = pdurl3
         if (getCookie('period3type') == 'math') {
@@ -260,6 +263,7 @@ function period3() {
 }
 function period4() {
     period = "4th"
+    pdn = "4"
     if (getCookie('period4type') != '') {
         redirectlocation = pdurl4
         if (getCookie('period4type') == 'math') {
@@ -280,6 +284,7 @@ function period4() {
 }
 function period5() {
     period = "5th"
+    pdn = "5"
     if (getCookie('period5type') != '') {
         redirectlocation = pdurl5
         if (getCookie('period5type') == 'math') {
@@ -300,6 +305,7 @@ function period5() {
 }
 function period6() {
     period = "6th"
+    pdn = "6"
     if (getCookie('period6type') != '') {
         redirectlocation = pdurl6
         if (getCookie('period6type') == 'math') {
@@ -320,6 +326,7 @@ function period6() {
 }
 function period7() {
     period = "7th"
+    pdn = "7"
     if (getCookie('period7type') != '') {
         redirectlocation = pdurl7
         if (getCookie('period7type') == 'math') {
@@ -340,6 +347,7 @@ function period7() {
 }
 function period8() {
     period = "8th"
+    pdn = "8"
     if (getCookie('period8type') != '') {
         redirectlocation = pdurl8
         if (getCookie('period8type') == 'math') {
@@ -360,6 +368,7 @@ function period8() {
 }
 function period9() {
     period = "9th"
+    pdn = "9"
     if (getCookie('period9type') != '') {
         redirectlocation = pdurl9
         if (getCookie('period9type') == 'math') {
@@ -380,6 +389,7 @@ function period9() {
 }
 function period10() {
     period = "10th"
+    pdn = "10"
     if (getCookie('period10type') != '') {
         redirectlocation = pdurl10
         if (getCookie('period10type') == 'math') {
@@ -400,6 +410,8 @@ function period10() {
 }
 function visibility() {
         document.getElementById('confirmation').style.visibility = "visible";
+        
+    if (
         document.getElementById('confirmationtext').innerHTML =  "Press 'Ok' to continue to the " + period + " period classroom."
     if (redirectlocation == "https://classroom.google.com/u/0/c/" || redirectlocation == "") {
         document.getElementById('confirmation').style.visibility = "visible";

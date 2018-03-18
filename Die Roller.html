@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <title id="title">None</title>
+        <script>
+            var rolls = 0;
+
+            function repeat50Dual6() {
+                if (rolls < 50) {
+                    var roll = Math.floor(Math.random() * 11 + 2);
+                    document.getElementById('roll').innerHTML = roll;
+                    rolls = rolls + 1;
+                    document.getElementById('tooltip').innerHTML = rolls;
+                    document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ":" + roll; + "</li>" + "<br>";
+                    document.title = roll;
+                    return repeat50Dual6();
+                }
+            }
+            function repeat50roll20() {
+                if (rolls < 50) {
+                    var roll = Math.floor(Math.random() * 20 + 1);
+                    document.getElementById('roll').innerHTML = roll;
+                    rolls = rolls + 1;
+                    document.getElementById('tooltip').innerHTML = rolls;
+                    document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ":" + roll; + "</li>" + "<br>";
+                    document.title = roll;
+                    return repeat50roll20();
+                }
+            }
+            function repeat50roll12() {
+                if (rolls < 50) {
+                    var roll = Math.floor(Math.random() * 12 + 1);
+                    document.getElementById('roll').innerHTML = roll;
+                    rolls = rolls + 1;
+                    document.getElementById('tooltip').innerHTML = rolls;
+                    document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ":" + roll; + "</li>" + "<br>";
+                    document.title = roll;
+                    return repeat50roll12();
+                }
+            }
+            function repeat50roll8() {
+                if (rolls < 50) {
+                    var roll = Math.floor(Math.random() * 8 + 1);
+                    document.getElementById('roll').innerHTML = roll;
+                    rolls = rolls + 1;
+                    document.getElementById('tooltip').innerHTML = rolls;
+                    document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ":" + roll; + "</li>" + "<br>";
+                    document.title = roll;
+                    return repeat50roll8();
+                }
+            }
+            function repeat50roll6() {
+                if (rolls < 50) {
+                    var roll = Math.floor(Math.random() * 6 + 1);
+                    document.getElementById('roll').innerHTML = roll;
+                    rolls = rolls + 1;
+                    document.getElementById('tooltip').innerHTML = rolls;
+                    document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ":" + roll; + "</li>" + "<br>";
+                    document.title = roll;
+                    return repeat50roll6();
+                }
+            }
+
+            function roll6() {
+                var roll = Math.floor(Math.random() * 6 + 1);
+                document.getElementById('roll').innerHTML = roll;
+            }
+
+            function roll62() {
+                var roll = Math.floor(Math.random() * 11 + 2);
+                document.getElementById('roll').innerHTML = roll;
+                rolls = rolls + 1;
+                document.getElementById('tooltip').innerHTML = rolls;
+                document.title = roll;
+                document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ": " + roll + "</li>";
+            }
+
+            function roll20() {
+                rolls = rolls + 1
+                var roll = Math.floor(Math.random() * 20 + 1);
+                document.getElementById('roll').innerHTML = roll;
+                document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ": " + roll + "</li>";
+                if (roll <= 5) {
+                    document.getElementById('tooltip').innerHTML = "Hope that wasn't important"
+                } else if (roll <= 10) {
+                    document.getElementById('tooltip').innerHTML = "Not the best but it could be worse!"
+                } else if (roll <= 15) {
+                    document.getElementById('tooltip').innerHTML = "Wouldn't be complaining!"
+                } else if (roll < 20) {
+                    document.getElementById('tooltip').innerHTML = "Couldn't be much better!"
+                } else if (roll == 20) {
+                    document.getElementById('tooltip').innerHTML = "Perfect roll!"
+                }
+            }
+
+            function roll12() {
+                rolls = rolls + 1
+                var roll = Math.floor(Math.random() * 12 + 1);
+                document.getElementById('roll').innerHTML = roll;
+                document.getElementById('answers').innerHTML = document.getElementById('answers').innerHTML + "<li>" + rolls + ": " + roll + "</li>";
+                if (roll <= 3) {
+                    document.getElementById('tooltip').innerHTML = "Hope that wasn't important"
+                } else if (roll <= 6) {
+                    document.getElementById('tooltip').innerHTML = "Not the best but it could be worse!"
+                } else if (roll <= 9) {
+                    document.getElementById('tooltip').innerHTML = "Wouldn't be complaining!"
+                } else if (roll < 12) {
+                    document.getElementById('tooltip').innerHTML = "Couldn't be much better!"
+                } else if (roll == 12) {
+                    document.getElementById('tooltip').innerHTML = "Perfect roll!"
+                }
+            }
+
+            function roll8() {
+                rolls = rolls + 1
+                var roll = Math.floor(Math.random() * 8 + 1);
+                document.getElementById('roll').innerHTML = roll;
+                if (roll <= 2) {
+                    document.getElementById('tooltip').innerHTML = "Hope that wasn't important"
+                } else if (roll <= 4) {
+                    document.getElementById('tooltip').innerHTML = "Not the best but it could be worse!"
+                } else if (roll <= 6) {
+                    document.getElementById('tooltip').innerHTML = "Wouldn't be complaining!"
+                } else if (roll < 8) {
+                    document.getElementById('tooltip').innerHTML = "Couldn't be much better!"
+                } else if (roll == 8) {
+                    document.getElementById('tooltip').innerHTML = "Perfect roll!"
+                }
+            }
+            function reset() {
+                document.getElementById('answers').innerHTML = "";
+                rolls = 0;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="jumbotron">
+             <h3 id="roll">Die has not been rolled.</h3>
+            <p id="tooltip">Press roll to roll a die.</p>
+            <div class="btn-group-vertical">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="return roll20();">20 sided die</button>
+                <button type="button" class="btn btn-primary" onclick="return roll12();">12 sided die</button>
+                <button type="button" class="btn btn-primary" onclick="return roll8();">8 sided die</button>
+                <button type="button" class="btn btn-primary" onclick="return roll6();">6 sided die</button>
+                <button type="button" class="btn btn-primary" onclick="return roll62();">Dual 6 sided die</button>
+                </div>
+                <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="return repeat50roll20();">Repeat 50: Roll 20</button>
+                <button type="button" class="btn btn-primary" onclick="return repeat50roll12();">Repeat 50: Roll 12</button>
+                <button type="button" class="btn btn-primary" onclick="return repeat50roll8();">Repeat 50: Roll 8</button>
+                <button type="button" class="btn btn-primary" onclick="return repeat50roll6();">Repeat 50: Roll 6</button>
+                <button type="button" class="btn btn-primary" onclick="return repeat50Dual6();">Repeat 50: Dual 6</button>
+                </div>
+                <button type="button" class="btn btn-danger" onclick="reset();">Reset</button>
+            </div>
+            <ul id="answers"></ul>
+        </div>
+    </body>
+
+</html>

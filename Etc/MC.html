@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Minecraft Hub</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<style>
+			body {
+				height:100%;
+				width:100%;
+				padding-top:1%;
+				padding-bottom:1%;
+				padding-left:1%;
+				padding-right:1%;
+				text-shadow: 2px 2px 3px grey;
+				background-image: url("https://static.planetminecraft.com/files/resource_media/screenshot/1236/pack_3530346.jpg");
+				background-repeat: repeat;
+			}
+			.row {
+				height:100%;
+				width:100%;
+				padding-top:1%;
+				padding-bottom:1%;
+				padding-left:1%;
+				padding-right:1%;
+				text-shadow: 2px 2px 3px white
+			}
+			.overworld {
+				background-color: #009933;
+				border-radius:10px;
+				box-shadow: 1px 1px 20px grey;
+			}
+			.nether {
+				background-color: #990000;
+				border-radius:10px;
+				box-shadow: 1px 1px 20px grey;
+			}
+			.foreground, h4 {
+				color: white;
+				text-shadow: 3px 3px 5px grey;
+			}
+			.potion {
+				background-color: #ff9900;
+				border-radius:10px;
+				box-shadow: 1px 1px 20px grey;
+			}
+			.indent {
+				padding-top:1%;
+				padding-bottom:1%;
+				padding-left:1%;
+				padding-right:1%;
+			}
+		</style>
+		<script>
+			function calculateOverworld() {
+				document.getElementById('x0').value = document.getElementById('x1').value * 8
+				document.getElementById('y0').value = document.getElementById('y1').value
+				document.getElementById('z0').value = document.getElementById('z1').value * 8
+				document.getElementById('xyz0').value = document.getElementById('x0').value + ", " + document.getElementById('y0').value + ", " + document.getElementById('z0').value
+			}
+			
+			function calculateNether() {
+				document.getElementById('x1').value = Math.floor(document.getElementById('x0').value / 8)
+				document.getElementById('y1').value = document.getElementById('y0').value
+				document.getElementById('z1').value = Math.floor(document.getElementById('z0').value / 8)
+				document.getElementById('xyz1').value = document.getElementById('x1').value + ", " + document.getElementById('y1').value + ", " + document.getElementById('z1').value
+			}
+			
+			function findPotion() {
+				var base = "Water Bottle";
+				var add = " + ";
+				var i0 = "Nether Wart ";
+				var i1 = "Fermented Spider Eye";
+				var i2 = "Gunpowder";
+				var i3 = "Golden Carrot";
+				var i4 = "Magma Cream";
+				var i5 = "Rabbit's foot";
+				var i6 = "Potion Of Leaping / Potion Of Swiftness";
+				var i7 = "Sugar";
+				var i8 = "Pufferfish";
+				var i9 = "Glistering Melon";
+				var i10 = "Potion Of Healing / Potion of Poison";
+				var i11 = "Spider Eye";
+				var i12 = "Ghast Tear";
+				var i13 = "Blaze Powder";
+				var i14 = "Turtle Shells";
+				var i15 = "Phantom Membrane";
+				var o0 = "Awkward Potion";
+				var product =  " = " + document.getElementById("potion").value
+					if (document.getElementById('potion').value == "Potion of Weakness") {
+						document.getElementById("potion-output").value = base + add + i1 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Night Vision") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i3 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Fire Resistance") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i4 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Leaping") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i5;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Slowness") {
+						document.getElementById("potion-output").value = i6 + add + i1;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Swiftness") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i7;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Water Breathing") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i8 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Healing") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i9 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Harming") {
+						document.getElementById("potion-output").value = i10 + add + i1 ;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Poison") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i11;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Regeneration") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i12;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Strength") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i13;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of The Turtle Master") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i14;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else if (document.getElementById('potion').value == "Potion of Slow Falling") {
+						document.getElementById("potion-output").value = base + add + i0 + add + i15;
+						if (document.getElementById("splash").checked == true) {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + add + i2 + product;
+						} else {
+							document.getElementById("potion-output").value = document.getElementById("potion-output").value + product;
+						}
+					} else {
+						document.getElementById('potion-output').value = "No potion selected";
+					}
+			}
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51765657-4"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-51765657-4');
+		</script>
+	</head>
+	<body>
+	<h1 class="foreground">Minecraft Hub</h1>
+	<div class="indent">
+		<h2 class="foreground">Nether Portal Calculator</h2>
+		<div class="row">
+			<div class="col overworld">
+				<div class="form-group" class="overworld">
+					<h4>Overworld</h4>
+					<input type="text" class="form-control" placeholder="X" id="x0" oninput="return calculateNether();">
+					<input type="text" class="form-control" placeholder="Y" id="y0" oninput="return calculateNether();">
+					<input type="text" class="form-control" placeholder="Z" id="z0" oninput="return calculateNether();">
+					<input type="text" class="form-control" placeholder="X, Y, Z" id="xyz0" readonly>
+				</div>
+			</div>
+			<div class="col nether">
+				<div class="form-group" class="nether">
+					<h4>Nether</h4>
+					<input type="text" class="form-control" placeholder="X" id="x1" oninput="return calculateOverworld();">
+					<input type="text" class="form-control" placeholder="Y" id="y1" oninput="return calculateOverworld();">
+					<input type="text" class="form-control" placeholder="Z" id="z1" oninput="return calculateOverworld();">
+					<input type="text" class="form-control" placeholder="X, Y, Z" id="xyz1" readonly>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col potion">
+				<div class="form-group">
+				<h4>Potion</h4>
+					<input class="form-control" type="text" id="potion" placeholder="Potion" list="potions" oninput="return findPotion();">
+					<div class="form-check">
+						<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" id="splash" onchange="return findPotion();">Splash?
+						</label>
+					</div>
+					<datalist id="potions">
+						<option>Potion of Night Vision</option>
+						<option>Potion of Fire Resistance</option>
+						<option>Potion of Leaping</option>
+						<option>Potion of Slowness</option>
+						<option>Potion of Swiftness</option>
+						<option>Potion of Water Breathing</option>
+						<option>Potion of Healing</option>
+						<option>Potion of Harming</option>
+						<option>Potion of Poison</option>
+						<option>Potion of Regeneration</option>
+						<option>Potion of Strength</option>
+						<option>Potion of The Turtle Master</option>
+						<option>Potion of Slow Falling</option>
+						<option>Potion of Resistance</option>
+						<option>Potion of Weakness</option>
+					</datalist>
+				</div>
+			</div>
+			<div class="col potion">
+			<h4>Input</h4>
+				<input class="form-control" type="text" readonly placeholder="No potion selected" id="potion-output">
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

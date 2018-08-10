@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-body { 
-    background-image: url('/GMOD/Cops & Runners.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-    background-color: #FF8F00;
-    background-size: auto 100%;
-}
-</style>
-</head>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<style>
+			body { 
+				background-image: url('/Cops & Runners.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: center; 
+				background-color: #FF8F00;
+				background-size: auto 100%;
+				margin-top:10px;
+				margin-bottom:10px;
+				margin-left:10px;
+				margin-right:10px;
+			}
+			div {
+				background-color: white;
+			}
+		</style>
+		<script>
+			var files = "";
+			function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
+				document.getElementById('server').innerHTML = "<strong>Server: </strong>" + servername;
+				document.getElementById('map').innerHTML = "<strong>Map: </strong>" + mapname;
+				document.getElementById('maxplayers').innerHTML = "<strong>Max Players: </strong>" + maxplayers;
+				document.getElementById('gamemode').innerHTML = "<strong>Gamemode: </strong>" + gamemode;
+			}
+			function DownloadingFile(fileName) {
+				document.getElementById('files').display = "inline";
+				document.getElementById('files').innerHTML = "<strong>Current File: </strong>" + fileName;
+			}
+			function SetStatusChanged(status) {
+				document.getElementById('progress').innerHTML = document.getElementById('progress').innerHTML + "<br><strong>" + status + "</strong>";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="alert alert-success" style="display:inline-block;">
+			<p id="server"></p>
+			<p id="map"></p>
+			<p id="maxplayers"></p>
+			<p id="gamemode"></p>
+			<p id="files" style="display:none;"></p>
+			<p id="progress"></p>
+		</div>
+	</body>
 </html>

@@ -13,7 +13,39 @@ function getCookie(cname) {
         }
     }
 }
+function setClock() {
+		var d = new Date();
+		var h = d.getHours();
+		var m = d.getMinutes();
+		if (h < 12 && h != 0) {
+			if (m < 10) {
+				document.getElementById('time').innerHTML = h + ":0" + m + " AM";
+			} else {
+				document.getElementById('time').innerHTML = h + ":" + m + " AM";
+			}
+		} else if (h > 12) {
+			if (m < 10) {
+				document.getElementById('time').innerHTML = h - 12 + ":0" + m + " PM";
+			} else {
+				document.getElementById('time').innerHTML = h - 12 + ":" + m + " PM";
+			}
+		} else if (h == 0){
+			if (m < 10) {
+				document.getElementById('time').innerHTML = 12 + ":0" + m + " AM";
+			} else {
+				document.getElementById('time').innerHTML = 12 + ":" + m + " AM";
+			}
+		} else {
+			if (m < 10) {
+				document.getElementById('time').innerHTML = 12 + ":0" + m + " PM";
+			} else {
+				document.getElementById('time').innerHTML = 12 + ":" + m + " PM";
+			}
+		}
+}
 function pageLoad() {
+	setClock();
+	setInterval(setClock, 1000)
 	if (getCookie('firstRun') == null || getCookie('firstRun') != "1") {
 		for (var i = 1; i <= 10; i++){
 			if (getCookie('period' + String(i)) != undefined) {
@@ -21,9 +53,6 @@ function pageLoad() {
 			}
 		}
 		document.getElementById('uid').value = getCookie('userID');
-		var d = new Date();
-		var h = d.getHours();
-		var m = d.getMinutes();
 	} else {
 		
 		getTime();

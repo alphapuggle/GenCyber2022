@@ -54,8 +54,6 @@ function pageLoad() {
 		}
 		if (getCookie('userID') != "" || getCookie('userID') != undefined) {
 			document.getElementById('uid').value = getCookie('userID');
-		} else {
-			return false;
 		}
 	} else {
 		

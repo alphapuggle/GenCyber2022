@@ -52,7 +52,11 @@ function pageLoad() {
 				document.getElementById("pd" + String(i) + "code").value = getCookie('period' + String(i));
 			}
 		}
-		document.getElementById('uid').value = getCookie('userID');
+		if (getCookie('userID') != "" || getCookie('userID') != "undefined") {
+			document.getElementById('uid').value = getCookie('userID');
+		} else {
+			return false;
+		}
 	} else {
 		
 		getTime();

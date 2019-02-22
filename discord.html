@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://bootstrap.themes.guide/tequila/theme.css">
+		<link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,28 +14,36 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 		
 		<script>
-			function urlChange() {
-				document.getElementById('form').action = document.getElementById('svrurl').value;
+			function changeServer() {
+				if(document.getElementById('server').value == "Blueberry Bottom - General") {
+					document.getElementById('form').action = "https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh";
+				} else if(document.getElementById('server').value == "Blueberry Bottom - Noteworthy"){
+					document.getElementById('form').action = "https://discordapp.com/api/webhooks/548601632162578487/24SK0u5lINFmJV2rg-i3krXSNmhD2MKl-qSkL6PlscND0c4Qiq22v-pYvGp-sl_Sa7oQ";
+				} else {
+					document.getElementById('form').action = "https://discordapp.com/api/webhooks/548347579482767360/lM9L9SQiCYBJoRP62AEYmpSQvX1vYt1Z0cOw44xEcW5K8yEkBxbKDL3CA6sy8GIY-3VU";
+				}
 			}
+			
 		</script>
 	</head>
 	<body>
-		<div class="jumbotron">
-			<input id="svrurl" class="form-control" type="text" placeholder="Webhook Server" onchange="return urlChange();">
+		<div class="jumbotron w-100 py-5 mx-auto">
 			<form id="form" action="" method="post" autocomplete="false">
+				<div class="form-inline">
+					<div class="form-group">
+					  <select class="form-control" name="server" id="server" onchange="changeServer();">
+						<option>Select Server</option>
+						<option>Blueberry Bottom - General</option>
+						<option>Blueberry Bottom - Noteworthy</option>
+						<option>Test Server</option>
+					  </select>
+					</div>
+				</div>
 				<div class="form-inline">
 					<input class="form-control" type="text" name="username" placeholder="Username">
 					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL">
-					<div class="form-group">
-					  <label for="tts">TTS</label>
-					  <select class="form-control" name="tts" id="tts">
-						<option>false</option>
-						<option>true</option>
-					  </select>
-					</div>
-					<input class="form-control-file border" type="file" name="file">
 				</div>
-				<textarea class="form-control" name="content" placeholder="Content""></textarea>
+				<textarea class="form-control" name="content" placeholder="Content"></textarea>
 				<textarea class="form-control" name="payload_json" placeholder="payload_json"></textarea>
 				<input class="btn btn-primary" type="submit">
 			</form>

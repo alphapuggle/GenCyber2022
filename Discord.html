@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://bootstrap.themes.guide/tequila/theme.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+		
+		<script>
+			function urlChange() {
+				document.getElementById('form').action = document.getElementById('svrurl').value;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="jumbotron">
+			<input id="svrurl" class="form-control" type="text" placeholder="Webhook Server" onchange="return urlChange();">
+			<form id="form" action="" method="post" autocomplete="false">
+				<div class="form-inline">
+					<input class="form-control" type="text" name="username" placeholder="Username">
+					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL">
+					<div class="form-group">
+					  <label for="tts">TTS</label>
+					  <select class="form-control" name="tts" id="tts">
+						<option>false</option>
+						<option>true</option>
+					  </select>
+					</div>
+					<input class="form-control-file border" type="file" name="file">
+				</div>
+				<textarea class="form-control" name="content" placeholder="Content""></textarea>
+				<textarea class="form-control" name="payload_json" placeholder="payload_json"></textarea>
+				<input class="btn btn-primary" type="submit">
+			</form>
+		</div>
+	</body>
+</html>

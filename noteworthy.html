@@ -12,18 +12,25 @@
 
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-		
+		<style>
+			div.inner {
+				margin: 10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="jumbotron w-100 py-5 mx-auto">
-			<form id="form" action="https://discordapp.com/api/webhooks/548601632162578487/24SK0u5lINFmJV2rg-i3krXSNmhD2MKl-qSkL6PlscND0c4Qiq22v-pYvGp-sl_Sa7oQ" method="post" autocomplete="false">
-				<div class="form-inline">
-					<input class="form-control" type="text" name="username" placeholder="Username" value="Noteworthy" style="display:none;">
-					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" value="https://is4-ssl.mzstatic.com/image/thumb/Purple127/v4/c2/10/5d/c2105de8-7bae-fb21-0959-c3e6d3258278/source/1200x630bb.jpg" style="display:none;">
-				</div>
-				<textarea class="form-control" name="content" placeholder="Quote"></textarea>
-				<input class="btn btn-primary" type="submit">
-			</form>
+		<div class="inner">
+			<div class="jumbotron w-100 py-5 mx-auto">
+			<img src="https://cdn.arstechnica.net/wp-content/uploads/2017/08/Discord-LogoWordmark-Color.png" style="height:60px;"><br><br>
+				<form id="form" action="https://discordapp.com/api/webhooks/548601632162578487/24SK0u5lINFmJV2rg-i3krXSNmhD2MKl-qSkL6PlscND0c4Qiq22v-pYvGp-sl_Sa7oQ" method="post" autocomplete="false" enctype="multipart/form-data">
+					<div class="form-inline">
+						<input class="form-control" type="text" name="username" placeholder="Username" value="Noteworthy" style="display:none;">
+						<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" value="https://is4-ssl.mzstatic.com/image/thumb/Purple127/v4/c2/10/5d/c2105de8-7bae-fb21-0959-c3e6d3258278/source/1200x630bb.jpg" style="display:none;">
+					</div>
+					<textarea class="form-control" name="content" placeholder="Quote"></textarea><br>	
+					<input class="btn btn-primary" type="submit">
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

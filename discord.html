@@ -47,7 +47,7 @@
 			</ul>
 		</nav>
 		<div class="inner">
-			<div class="jumbotron w-100 py-5 mx-auto">	
+			<div class="jumbotron w-100 py-5 mx-auto">
 			<form id="form" action="https://discordapp.com/api/webhooks/548347579482767360/lM9L9SQiCYBJoRP62AEYmpSQvX1vYt1Z0cOw44xEcW5K8yEkBxbKDL3CA6sy8GIY-3VU" method="post" autocomplete="false" enctype="multipart/form-data">
 				<div class="form-inline">
 					<select class="form-control" name="server" id="server" onchange="changeServer();">
@@ -56,8 +56,8 @@
 						<option>Blueberry Bottom - Noteworthy</option>
 						<option>Test Server</option>
 					</select>
-					<input class="form-control" type="text" name="username" placeholder="Username">
-					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL">
+					<input class="form-control" type="text" name="username" placeholder="Username" autocomplete="off">
+					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" autocomplete="off">
 					<label for="sel1">TTS:</label>
 					<select class="form-control custom-select" id="tts">
 						<option>true</option>
@@ -71,8 +71,8 @@
 					<br>
 				</div>
 				<div class="form-group">
-					<textarea class="form-control" name="content" placeholder="Content" style="margin-top: 0px; margin-bottom: 0px; height: 100px;"></textarea>
-					<textarea class="form-control" name="payload_json" placeholder="payload_json" style="margin-top: 0px; margin-bottom: 0px; height: 100px;"></textarea>
+					<textarea class="form-control" name="content" placeholder="Content" style="margin-top: 0px; margin-bottom: 0px; height: 100px;" autocomplete="false"></textarea>
+					<textarea class="form-control" name="payload_json" placeholder="payload_json" style="margin-top: 0px; margin-bottom: 0px; height: 100px;" autocomplete="false"></textarea>
 					<input class="btn btn-primary" type="submit">
 				</div>
 			</form>

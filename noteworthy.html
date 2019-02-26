@@ -1,17 +1,16 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
-
-		<!-- jQuery library -->
+		<meta name="theme-color" content="#343a40">
+		<meta name="msapplication-navbutton-color" content="#343a40">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-		<!-- Popper JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+		
 		<style>
 			div.inner {
 				margin: 10px;
@@ -19,9 +18,24 @@
 		</style>
 	</head>
 	<body>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="https://linuxfan1.github.io/discord">
+				<img src="https://cdn.arstechnica.net/wp-content/uploads/2017/08/Discord-LogoWordmark-Color.png" style="height:60px;">
+			</a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="https://linuxfan1.github.io/discord">General</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://linuxfan1.github.io/noteworthy">Noteworthy</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://discord.gg/QJJDpqt">Test Server</a>
+				</li>
+			</ul>
+		</nav>
 		<div class="inner">
 			<div class="jumbotron w-100 py-5 mx-auto">
-			<img src="https://cdn.arstechnica.net/wp-content/uploads/2017/08/Discord-LogoWordmark-Color.png" style="height:60px;"><br><br>
 				<form id="form" action="https://discordapp.com/api/webhooks/548601632162578487/24SK0u5lINFmJV2rg-i3krXSNmhD2MKl-qSkL6PlscND0c4Qiq22v-pYvGp-sl_Sa7oQ" method="post" autocomplete="false" enctype="multipart/form-data">
 					<div class="form-inline">
 						<input class="form-control" type="text" name="username" placeholder="Username" value="Noteworthy" style="display:none;">

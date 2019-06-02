@@ -29,8 +29,23 @@
 			}
 		</style>
 		<script>
+			var both = false;
 			function updateText() {
-				document.getElementById('url').value = getTheDamnDate() + "\n" + document.getElementById('url').value;
+				document.getElementById('url').value = getTheDamnDate() + "\n" + document.getElementById('textbox').value;
+				if (both != true) {
+					document.getElementById('postvideo').click();
+				} else {
+					submitLayump();
+					setTimeout('submitOctopi();', 1000);
+				}
+			}
+			function submitLayump() {
+				document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/584545210395000832/rYldJ0W5m2pwEWEV3veTyrffnF7jjsQ4saUy47Zti0hjGqkUymrxlrXINMIt2gKrOKMK');
+				document.getElementById('postvideo').click();
+			}
+			function submitOctopi() {
+				document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh');
+				document.getElementById('postvideo').click();
 			}
 			function getTheDamnDate() {
 				var d = new Date();
@@ -78,15 +93,15 @@
 				return y;
 			}
 			function changeServer() {
-				var ch = document.getElementById('layump').checked;
-				switch(ch) {
-					case(true):
+				if (document.getElementById('layump').checked == true) {
 					document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/584545210395000832/rYldJ0W5m2pwEWEV3veTyrffnF7jjsQ4saUy47Zti0hjGqkUymrxlrXINMIt2gKrOKMK');
-					break;
-					default:
+					both = false;
+				} else if (document.getElementById('octopi').checked == true) {
 					document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh');
+					both = false;
+				} else {
+					both = true;
 				}
-				
 			}
 		</script>
 	</head>
@@ -100,18 +115,29 @@
 		</nav>
 		<div class="inner">
 			<div class="jumbotron w-100 py-5 mx-auto">
-				<form id="form" action="https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh" method="post" autocomplete="false" enctype="multipart/form-data">
-					<div class="form-check">
-						<label class="form-check-label">
-							<input type="checkbox" class="form-check-input" onchange="changeServer();" id="layump">Post in layump
-						</label>
-					</div>
-					<div class="form-inline">
-						<input class="form-control" type="text" name="username" placeholder="Username" value="Octopi" style="display:none;">
-						<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" value="https://yt3.ggpht.com/-o4GQJ-d4pzk/AAAAAAAAAAI/AAAAAAAAAAA/xUvqfRpXDkQ/s108-c-k-no-mo-rj-c0xffffff/photo.jpg" style="display:none;">
-					</div>
-					<textarea id="url" class="form-control" name="content" placeholder="URL (youtu.be)"></textarea><br>	
-					<input class="btn" style="background-color:#b31217; color:white;" onclick="updateText();" type="submit">
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="layump" checked>Post in Layump 
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="octopi">Post in Octopi 
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="both">Post in both 
+					</label>
+				</div>
+				<br>
+				<textarea id="textbox" class="form-control" placeholder="URL (youtu.be)"></textarea><br>	
+				<input class="btn" style="background-color:#b31217; color:white;" onclick="updateText();" type="submit">
+				<form style="display:none;" id="form" action="https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh" method="post" autocomplete="false" enctype="multipart/form-data">
+					<input class="form-control" type="text" name="username" placeholder="Username" value="Octopi" style="display:none;">
+					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" value="https://yt3.ggpht.com/-o4GQJ-d4pzk/AAAAAAAAAAI/AAAAAAAAAAA/xUvqfRpXDkQ/s108-c-k-no-mo-rj-c0xffffff/photo.jpg" style="display:none;">
+					<textarea id="url" class="form-control" name="content" ></textarea><br>	
+					<input id="postvideo" type="submit">
 				</form>
 			</div>
 		</div>

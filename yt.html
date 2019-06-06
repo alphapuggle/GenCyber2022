@@ -31,21 +31,32 @@
 		<script>
 			var both = false;
 			function updateText() {
-				document.getElementById('url').value = getTheDamnDate() + "\n" + document.getElementById('textbox').value;
+				document.getElementById('url').value = getTheDamnDate() + "\n\n" + document.getElementById('textbox').value;
 				if (both != true) {
 					document.getElementById('postvideo').click();
 				} else {
-					submitLayump();
-					setTimeout('submitOctopi();', 1000);
+					setTimeout('submitLayump();', 1000);
+					setTimeout('submitOctopic();', 2000);
+					setTimeout('submitOctopis();', 3000);
 				}
 			}
 			function submitLayump() {
+				console.log('submitLayump');
 				document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/584545210395000832/rYldJ0W5m2pwEWEV3veTyrffnF7jjsQ4saUy47Zti0hjGqkUymrxlrXINMIt2gKrOKMK');
 				document.getElementById('postvideo').click();
+				console.log('submitLayump');
 			}
-			function submitOctopi() {
+			function submitOctopic() {
+				console.log('submitOctopic');
 				document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh');
 				document.getElementById('postvideo').click();
+				console.log('submitOctopic');
+			}
+			function submitOctopis() {
+				console.log('submitOctopis');
+				document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/585267240031748117/CTXGHJsatfvvhujixPWsjt2FnxEF2NzAk5JmcNTdIYVFpuACC0xomq1R0OIWN0DkxCYs');
+				document.getElementById('postvideo').click();
+				console.log('submitOctopis');
 			}
 			function getTheDamnDate() {
 				var d = new Date();
@@ -96,8 +107,11 @@
 				if (document.getElementById('layump').checked == true) {
 					document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/584545210395000832/rYldJ0W5m2pwEWEV3veTyrffnF7jjsQ4saUy47Zti0hjGqkUymrxlrXINMIt2gKrOKMK');
 					both = false;
-				} else if (document.getElementById('octopi').checked == true) {
+				} else if (document.getElementById('octopic').checked == true) {
 					document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh');
+					both = false;
+				} else if (document.getElementById('octopis').checked == true) {
+					document.getElementById('form').setAttribute('action', 'https://discordapp.com/api/webhooks/585267240031748117/CTXGHJsatfvvhujixPWsjt2FnxEF2NzAk5JmcNTdIYVFpuACC0xomq1R0OIWN0DkxCYs');
 					both = false;
 				} else {
 					both = true;
@@ -122,18 +136,23 @@
 				</div>
 				<div class="form-check">
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="octopi">Post in Octopi 
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="octopic">Post in Octopi Channel
 					</label>
 				</div>
 				<div class="form-check">
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="both">Post in both 
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="octopis">Post in Octopi Server
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label">
+						<input type="radio" class="form-check-input" onchange="changeServer();" name="server" id="both">Post in all 
 					</label>
 				</div>
 				<br>
 				<textarea id="textbox" class="form-control" placeholder="URL (youtu.be)"></textarea><br>	
 				<input class="btn" style="background-color:#b31217; color:white;" onclick="updateText();" type="submit">
-				<form style="display:none;" id="form" action="https://discordapp.com/api/webhooks/548317993113878549/Gd4lXe0inX5l0B_jBo4Gt-KLzR5jG3t_Vrs3Fn3ylk2Xi0qJnkI5RNonjZqlsMRK8XBh" method="post" autocomplete="false" enctype="multipart/form-data">
+				<form style="display:none;" id="form" action="https://discordapp.com/api/webhooks/584545210395000832/rYldJ0W5m2pwEWEV3veTyrffnF7jjsQ4saUy47Zti0hjGqkUymrxlrXINMIt2gKrOKMK" method="post" autocomplete="false" enctype="multipart/form-data">
 					<input class="form-control" type="text" name="username" placeholder="Username" value="Octopi" style="display:none;">
 					<input class="form-control" type="text" name="avatar_url" placeholder="Avatar URL" value="https://yt3.ggpht.com/-o4GQJ-d4pzk/AAAAAAAAAAI/AAAAAAAAAAA/xUvqfRpXDkQ/s108-c-k-no-mo-rj-c0xffffff/photo.jpg" style="display:none;">
 					<textarea id="url" class="form-control" name="content" ></textarea><br>	

@@ -2,15 +2,21 @@
 <html>
     <head>
         <script>
-            var location = window.location
-            var start = location.href.split('?start=')[1];
+            var location = window.location;
+            var start;
+            if (location.href.split('?start=')[1] != undefined) {
+                start = location.href.split('?start=')[1];
+            } else {
+                start = 0;
+            }
             var output;
             var currentNumber = 1;
             var outputAddition;
             var length;
             var totalMoves = 0;
+            var start = 0;
             function onLoad(number) {
-                alert("Enter to go!");
+                prompt("Enter to go!");
                 document.getElementsByTagName('html')[0].style.height = "100%";
                 document.getElementsByTagName('html')[0].style.width = "100%";
                 document.getElementsByTagName('html')[0].style.margin = "0px";
@@ -25,7 +31,7 @@
                 document.body.innerHTML = "";
                 document.body.appendChild(output);
                 //var number = parseInt(prompt("Number: "));
-                calculateNumber(number);asdfasdfa
+                calculateNumber(number);
             }
             function calculateNumber(number) {
                 try {
@@ -38,7 +44,7 @@
                         } else {
                             output.value = output.value + "\nNumber: " + start + "\nDone\nTook: " + totalMoves +" moves";
                             start++;
-                            console.log(start);
+                            console.log("Number: " + start + "\nTotal Moves: " + totalMoves);
                             calculateNumber(start);
                         }
                     } else {

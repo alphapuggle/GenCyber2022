@@ -2,6 +2,7 @@
 <html>
     <head>
         <script>
+            alert('Javascript loaded and working');
             var location = window.location;
             var start;
             if (location.href.split('?start=')[1] != undefined) {
@@ -57,7 +58,7 @@
                         calculateNumber(currentNumber);
                     }
                 } catch (err) {
-                    window.location = location[0] + "?start=" + currentNumber;
+                    window.location.assign(location[0] + "?start=" + currentNumber);
                 }
             }
         </script>

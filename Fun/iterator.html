@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script>
+            var location = window.location
+            var start = location.href.split('?start=')[1];
+            var output;
+            var currentNumber = 1;
+            var outputAddition;
+            var length;
+            var totalMoves = 0;
+            function onLoad(number) {
+                alert("Enter to go!");
+                document.getElementsByTagName('html')[0].style.height = "100%";
+                document.getElementsByTagName('html')[0].style.width = "100%";
+                document.getElementsByTagName('html')[0].style.margin = "0px";
+                document.getElementsByTagName('html')[0].style.overflow = "hidden";
+                document.getElementsByTagName('body')[0].style.height = "100%";
+                document.getElementsByTagName('body')[0].style.width = "100%";
+                document.getElementsByTagName('body')[0].style.margin = "0px";
+                document.getElementsByTagName('body')[0].style.overflow = "hidden";
+                output = document.createElement('textarea');
+                output.style.width = "100%";
+                output.style.height = "100%";
+                document.body.innerHTML = "";
+                document.body.appendChild(output);
+                //var number = parseInt(prompt("Number: "));
+                calculateNumber(number);asdfasdfa
+            }
+            function calculateNumber(number) {
+                try {
+                    var numberSplit = String(number).split("");
+                    currentNumber = 1;
+                    if (length == 1) {
+                        if (totalMoves >= 11) {
+                            alert("FOUND");
+                            output.value = output.value + "\nNumber: " + start + "\nDone\nTook: " + totalMoves +" moves";
+                        } else {
+                            output.value = output.value + "\nNumber: " + start + "\nDone\nTook: " + totalMoves +" moves";
+                            start++;
+                            console.log(start);
+                            calculateNumber(start);
+                        }
+                    } else {
+                        for (i=0; i < numberSplit.length; i++) {
+                            currentNumber = currentNumber * numberSplit[i];
+                        }
+                        length = String(currentNumber).length;
+                        output.value = output.value + "\n" + currentNumber ;
+                        totalMoves ++;
+                        calculateNumber(currentNumber);
+                    }
+                } catch (err) {
+                    window.location = location[0] + "?start=" + currentNumber;
+                }
+            }
+        </script>
+    </head>
+    <body onload="onLoad(start);">
+        <a>Javascript error</a>
+    </body>
+</html>

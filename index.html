@@ -9,6 +9,7 @@
         html {
             overflow: hidden;
         }
+
         html,
         body {
             padding: 0px;
@@ -29,13 +30,7 @@
             grid-column: 1;
             grid-row: 1;
             display: grid;
-            grid-template-rows: auto minmax(0,1fr);
-        }
-
-        .drive {
-            background-color: lime;
-            grid-column: 1;
-            grid-row: 2;
+            grid-template-rows: auto minmax(0, 1fr);
         }
 
         .header {
@@ -93,7 +88,7 @@
             padding-left: 15px;
         }
 
-        .hotbar-item {
+        .hotbar-item, .editorbar-item {
             padding: 7px;
             border-radius: 10px;
             height: min-content;
@@ -101,9 +96,10 @@
             display: grid;
             grid-template-columns: 20px 1fr;
             transition: background .25s;
+            cursor: pointer;
         }
 
-        .hotbar-item>img {
+        .hotbar-item>img, .editorbar-item>img {
             filter: invert(1);
             width: 20px;
             line-height: 16px;
@@ -111,14 +107,14 @@
             margin: auto;
         }
 
-        .hotbar-item>a {
+        .hotbar-item>a, .editorbar-item>a {
             vertical-align: middle;
             margin-right: 5px;
             grid-column: 2;
             margin: auto;
         }
 
-        .hotbar-item:hover {
+        .hotbar-item:hover, .editorbar-item:hover {
             background-color: #2d2d2d;
         }
 
@@ -126,10 +122,9 @@
             filter: opacity(.5);
         }
 
-        .hotbar.disabled > .hotbar-item:hover {
+        .hotbar.disabled>.hotbar-item:hover, .editorbar.disabled>.editorbar-item{
             background-color: initial;
         }
-
         .navigation {
             grid-column: 1/3;
             display: flex;
@@ -143,6 +138,7 @@
             align-self: center;
             display: grid;
             transition: background .25s;
+            cursor: pointer;
         }
 
         .navigation-url {
@@ -151,6 +147,7 @@
             background-color: #191919;
             border: solid 1px #2b2b2b;
             color: white;
+            cursor: text;
         }
 
         .navigation-item>img {
@@ -164,90 +161,387 @@
         .navigation-item:hover {
             background-color: #2d2d2d;
         }
+
         .filesview {
-            display:grid;
-            overflow-y:scroll;
+            display: grid;
+            overflow-y: scroll;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-auto-flow: row;
-            padding:10px;
+            padding: 10px;
             grid-auto-rows: max-content;
-            height:100%;
+            height: 100%;
             min-width: 0px;
-            min-height:0px;
+            min-height: 0px;
         }
+
         .file {
-            display:grid;
+            display: grid;
             grid-template-columns: 50px 1fr;
-            height:50px;
-            border: dotted 1px #00000000;
-            padding:5px;
+            height: 50px;
+            border: dotted 1px #00000000 inset;
+            padding: 5px;
         }
+
+        .file:focus,
+        .file:focus:hover {
+            background-color: #777777;
+            border: solid 2px #2b2b2b inset;
+        }
+
         .file:hover {
-            border: dotted 1px #2b2b2b;
+            border: dotted 1px #2b2b2b inset;
             background-color: #2d2d2d;
         }
-        .file > img {
+
+        .file>img {
             grid-column: 1;
-            width:50px;
-            height:100%;
+            width: 50px;
+            height: 100%;
         }
-        .file > a {
+
+        .file>a {
+            -webkit-user-select: none;
+            user-select: none;
             grid-column: 2;
             vertical-align: middle;
             margin-right: 5px;
             grid-column: 2;
             margin-left: 10px;
-            overflow:hidden;
+            overflow: hidden;
             line-height: 25px;
         }
+
         .file.active {
             background-color: #777777;
         }
+
         .name-popup {
             position: absolute;
-            left:0;
-            right:0;
-            top:0;
-            bottom:0;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
             align-self: center;
             margin: auto;
-            width:fit-content;
-            height:min-content;
-            min-height:10%;
-            display:grid;
-            grid-template-columns: minmax(0,1fr);
-            grid-template-rows: 20px minmax(0,1fr);
-            background-color: red;
+            width: max-content;
+            height: min-content;
+            min-height: 10%;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: auto minmax(0, 1fr);
             border: solid 2px #2b2b2b;
-            background-color: #191919;
+            //background-color: #191919;
             border-radius: 5px;
-            color:white;
+            color: white;
         }
-        .name-popup > div.popupbar {
-            grid-column:1/4;
+
+        .popupbar {
+            grid-column: 1/4;
             background-color: #2b2b2b;
-            width:100%;
+            display: grid;
+            grid-template-columns: 16px auto;
+            width: 100%;
         }
-        .name-popup > div.popupcontent {
-            padding:10px;
+
+        .popupbar>a {
+            grid-column: 2;
+            width: 100%;
+            padding-left: 5px;
+        }
+
+        .popupbar>img {
+            grid-column: 1;
+            width: 100%;
+            margin: auto;
+        }
+
+        .popupcontent {
+            padding: 10px;
             grid-column: 2;
             grid-row: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-gap: 5px;
+        }
+
+        .popupcontent>input {
+            background-color: #2b2b2b;
+            border: solid 1px #2b2b2b;
+            color: white;
+        }
+
+        .popuplogo {
+            grid-column: 1/2;
+            grid-row: 1;
+            width: 25px;
+            margin: auto;
+        }
+
+        .popupfield {
+            grid-column: 2/5;
+            grid-row: 2;
+        }
+
+        .popupcancel {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .popupconfirm {
+            grid-column: 4;
+            grid-row: 3;
+        }
+
+        .popupcontent>label[for="name"] {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .popuptooltip {
+            grid-column: 2/4;
+            grid-row: 1;
+            margin: auto;
+        }
+
+        input[type="button"] {
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 2px;
+        }
+
+        .section:focus {
+            background-image: url("images/diskbackground.png");
+            border:5px #bbbbbb inset;
+        }
+
+        .drive {
+            background-color: #f0f0f0;
+            grid-column: 1;
+            grid-row: 2;
+            display:flex;
+            flex-wrap: nowrap;
+        }
+        .section {
+            background-color: white;
+            flex:1;
+            display:grid;
+            grid-template-rows: 20px 1fr 1fr;
+            border:5px #ffffff inset;
+        }
+        .section > .sectiontext {
+            margin: 5px 0px;
+        }
+        .section > .sectiontext > a{
+            background-color: white;
+            color:black;
+            margin-top:2px;
+        }
+        .section > div:nth-child(1) {
+            width:100%;
+            height:100%;
+            background-color:rebeccapurple;
+        }
+        .editor {
+            position: absolute;
+            left:10%;
+            right:10%;
+            top:10%;
+            bottom:5%;
+            background-color: #191919;
+            border: solid 1px #2b2b2b;
+            border-radius:5px;
+            display:grid;
+            margin:auto;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: auto auto minmax(0, 1fr);
+            border: solid 2px #2b2b2b;
+            //background-color: #191919;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .editorbar {
+            display: grid;
+            padding: 5px;
+            grid-gap: 2px;
+            grid-template-columns: 75px 90px minmax(0,1fr);
+            padding-left: 15px;
+            background-color: #202020;
+        }
+        .editor > textarea {
+            background-color: #191919;
+            grid-row:3;
+            grid-column: 1/4;
+            resize:none;
+            color:white;
         }
     </style>
     <script>
-
+        let partitionTable = {}
+        let registers = 256
+        let data = []
+        for(i = 0; i < registers * 4; i++) {
+            data[i] = "0000";
+        }
+        let openFile;
         class File {
             static files = [];
             constructor(fileName) {
                 this.name = fileName;
+                this.uuid = crypto.randomUUID();
+                partitionTable[this.uuid] = {
+                    name: this.name,
+                    data: []
+                }
                 this.element = document.querySelector("template#fileElement").content.firstElementChild.cloneNode(true);
                 this.element.querySelector("a").innerHTML = this.name;
+                this.lastClick = Date.now();
+                this.contents = "";
+                this.active = true;
+                this.element.addEventListener("click",()=>{
+                    if(Date.now() - this.lastClick < 200) {
+                        console.log("Double Click!")
+                        openEditor(this);
+                    }
+                    this.lastClick = Date.now();
+                })
+                this.element.addEventListener("focusout",(e)=>{
+                    if(e.relatedTarget == document.querySelector("img[title='Delete']").parentElement) {
+                        console.log(`DELETE ${this.name}`)
+                        this.section.updateColor("#880e0e")
+                        this.element.animate([
+                            {opacity:1},{opacity:0}
+                        ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
+                            document.querySelector(".filesview").removeChild(this.element);
+                            File.files.splice(File.files.indexOf(this),1)
+                        })
+                    }
+                })
                 document.querySelector(".filesview").appendChild(this.element);
+                this.element.animate([
+                    {opacity:0},{opacity:1}
+                ],{duration:100,easing:"ease-in-out"})
+                this.element.focus();
+                this.section = new Section(this);
                 File.files.push(this);
             }
+            getPartitionTableEntry() {
+                return partitionTable[this.uuid];
+            }
         }
-        window.addEventListener("load", ()=> {
-            new File("Test of the file loading script");
+        class Section {
+            static sections = [];
+            constructor(file) {
+                this.file = file; 
+                this.element = document.querySelector("template#sectionElement").content.firstElementChild.cloneNode(true);
+                this.element.querySelector("a").innerHTML = this.file.name;
+                document.querySelector(".drive").appendChild(this.element);
+                this.updateColor("#000080")
+                Section.sections.push(this);
+                
+            }
+            updateColor(color) {
+                this.color = color;
+                this.element.querySelector(".section > div").style.backgroundColor = this.color;
+            }
+        }
+        function openEditor(file) {
+            openFile = file;
+            document.querySelector(".editor").style.display = "grid";
+            document.querySelector(".editor").animate([
+                {opacity:0},{opacity:1}
+            ],{duration:100,easing:"ease-in-out"})
+        }
+        function closeEditor(save) {
+            if(save) {
+                //save
+            }
+            document.querySelector(".editor").animate([
+                {opacity:1},{opacity:0}
+            ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",(e)=>{
+                document.querySelector(".editor").style.display = "none";
+                openFile = undefined;
+            }) 
+        }
+        function intToBinary(num) {
+            let x = num;
+            let bin = (x % 2).toString();
+            while(x > 1) {
+                x = parseInt(x / 2);
+                bin = (x % 2) + bin;
+            }
+            while(bin.length < 16) {
+                bin = "0" + bin;
+            }
+            return bin;
+        }
+        function binaryToInt(bin) {
+            return parseInt(bin,2);
+        }
+        function convertDataToUnicode() {
+            let output = "";
+            for(i = 0; i < data.length; i+= 4) {
+                output += String.fromCharCode(binaryToInt(data[i]+data[i+1]+data[i+2]+data[i+3]));
+            }
+            console.log(output);
+        }
+        function printBinaryData() {
+            let output = "";
+            for(i = 0; i < data.length; i+= 4) {
+                output += `${i/4}: ${data[i]} ${data[i+1]} ${data[i+2]} ${data[i+3]}\n`;
+            }
+            console.log(output);
+        }
+        function inputData(input,blockStart = 0) {
+            input = input.split("");
+            let dataIndex = blockStart * 4;
+            for(i = 0; i < input.length; i++) {
+                console.log(i);
+                let char = input[i];
+                let bin = intToBinary(char.charCodeAt(0));
+                data[dataIndex] = bin.slice(0,4);
+                data[dataIndex + 1] = bin.slice(4,8);
+                data[dataIndex + 2] = bin.slice(8,12);
+                data[dataIndex + 3] = bin.slice(12,16);
+                dataIndex += 4;
+                console.log(bin,"\n");
+            }
+        }
+        window.addEventListener("load", () => {
+            //new File("Test of the file loading script");
+            document.querySelector(".new-button").addEventListener("click", () => {
+                document.querySelector(".name-popup").style.display = "grid";
+                document.querySelector(".name-popup").animate([
+                    {opacity:0},{opacity:1}
+                ],{duration:100,easing:"ease-in-out"})
+                document.querySelector(".popupfield").focus();
+            })
+            document.querySelector(".popupcancel").addEventListener("click", () => {
+                document.querySelector(".name-popup").animate([
+                    {opacity:1},{opacity:0}
+                ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
+                    document.querySelector(".name-popup").style.display = "none";
+                    document.querySelector(".popupfield").value = "";
+                })
+            })
+            document.querySelector(".popupconfirm").addEventListener("click", () => {
+                new File(document.querySelector(".popupfield").value);
+                document.querySelector(".name-popup").style.display = "none";
+                document.querySelector(".popupfield").value = "";
+            })
+            document.querySelector(".popupfield").addEventListener("search", () => {
+                new File(document.querySelector(".popupfield").value);
+                document.querySelector(".name-popup").style.display = "none";
+                document.querySelector(".popupfield").value = "";
+            })
+
+            document.querySelector("img[title='Save']").parentElement.addEventListener("click", () => {
+                closeEditor(true);
+            })
+            document.querySelector("img[title='Discard']").parentElement.addEventListener("click", () => {
+                closeEditor(false);
+            })
         })
     </script>
 </head>
@@ -257,59 +551,87 @@
         <div class="header">
             <div class="titlebar"><a>Working Folder</a></div>
             <div class="hotbar">
-                <div class="hotbar-item new-button">
-                    <img src="images/icons/ic_fluent_add_circle_24_regular.svg">
+                <div class="hotbar-item new-button" tabindex="1">
+                    <img src="images/icons/ic_fluent_add_circle_24_regular.svg" title="New">
                     <a>New</a>
                 </div>
-                <div class="hotbar-item">
-                    <img src="images/icons/ic_fluent_cut_24_regular.svg">
+                <div class="hotbar-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_cut_24_regular.svg" title="Cut">
                 </div>
-                <div class="hotbar-item">
-                    <img src="images/icons/ic_fluent_copy_24_regular.svg">
+                <div class="hotbar-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_copy_24_regular.svg" title="Copy">
                 </div>
-                <div class="hotbar-item">
-                    <img src="images/icons/ic_fluent_clipboard_paste_24_regular.svg">
+                <div class="hotbar-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_clipboard_paste_24_regular.svg" title="Paste">
                 </div>
-                <div class="hotbar-item">
-                    <img src="images/icons/ic_fluent_rename_24_regular.svg">
+                <div class="hotbar-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_rename_24_regular.svg" title="Rename">
                 </div>
-                <div class="hotbar-item">
-                    <img src="images/icons/ic_fluent_delete_24_regular.svg">
+                <div class="hotbar-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_delete_24_regular.svg" title="Delete">
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="navigation">
-                <div class="navigation-item">
-                    <img src="images/icons/ic_fluent_arrow_left_24_regular.svg">
+                <div class="navigation-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_arrow_left_24_regular.svg" title="Back">
                 </div>
-                <div class="navigation-item">
-                    <img src="images/icons/ic_fluent_arrow_right_24_regular.svg">
+                <div class="navigation-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_arrow_right_24_regular.svg" title="Forward">
                 </div>
-                <div class="navigation-item">
-                    <img src="images/icons/ic_fluent_caret_down_24_regular.svg">
+                <div class="navigation-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_caret_down_24_regular.svg" title="Recent Locations">
                 </div>
-                <div class="navigation-item">
-                    <img src="images/icons/ic_fluent_arrow_up_24_regular.svg">
+                <div class="navigation-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_arrow_up_24_regular.svg" title="Up">
                 </div>
-                <input class="navigation-item navigation-url" type="url" value="C:\WorkingFolder\">
+                <input class="navigation-item navigation-url" type="url" value="C:\WorkingFolder\" tabindex="1"
+                    placeholder="Location">
+                <div class="navigation-item" tabindex="1">
+                    <img src="images/icons/ic_fluent_arrow_clockwise_24_regular.svg" title="refresh">
+                </div>
             </div>
             <div class="filepane">
             </div>
             <div class="filesview">
             </div>
             <template id="fileElement">
-                <div class="file"><img src="images/shell32_152.ico"><a>${{name}}</a></div>
+                <div class="file" tabindex="1"><img src="images/shell32_152.ico"><a>${{name}}</a></div>
             </template>
         </div>
     </div>
-    <div class="drive">
-    </div>
-    <div class="name-popup" style="display:none;">
-        <div class="popupbar"></div>
-        <div class="popupcontent">
-            This is a test of the popup window
+    <div class="drive"></div>
+    <template id="sectionElement">
+        <div class="section" tabindex="1">
+            <div></div>
+            <div class="sectiontext"><a>${{name}}</a></div>
         </div>
+    </template>
+    <div class="name-popup" style="display: none;">
+        <div class="popupbar"><img src="images/shell32_152.ico"><a>Create New File</a></div>
+        <div class="popupcontent">
+            <img class="popuplogo" src="images/shell32_152.ico">
+            <a class="popuptooltip">Type a file name</a>
+            <label for="name">Name:</label>
+            <input name="name" class="popupfield" type="search" placeholder="Filename">
+            <input class="popupcancel" type="button" value="Cancel">
+            <input class="popupconfirm" type="button" value="OK">
+        </div>
+    </div>
+    <div class="editor" style="display:none;">
+        <div class="popupbar"><img src="images/shell32_152.ico" title="Edit File"><a>Edit File</a></div>
+        <div class="editorbar">
+            <div class="editorbar-item">
+                <img src="images/icons/ic_fluent_save_24_regular.svg" title="Save">
+                <a>Save</a>
+            </div>
+            <div class="editorbar-item">
+                <img src="images/icons/ic_fluent_delete_dismiss_24_regular.svg" title="Discard">
+                <a>Discard</a>
+            </div>
+        </div>
+        <textarea title="Editor"></textarea>
     </div>
 </body>
 

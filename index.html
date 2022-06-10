@@ -6,15 +6,20 @@
 
 <head>
     <style>
+        html {
+            overflow: hidden;
+        }
         html,
         body {
             padding: 0px;
             margin: 0px;
+            background-color: #191919;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             display: grid;
+            overflow: auto;
             grid-template-rows: 90vh 10vh
         }
 
@@ -121,7 +126,7 @@
             filter: opacity(.5);
         }
 
-        .hotbar.disabled>.hotbar-item.disabled:hover {
+        .hotbar.disabled > .hotbar-item:hover {
             background-color: initial;
         }
 
@@ -198,15 +203,61 @@
         .file.active {
             background-color: #777777;
         }
+        .name-popup {
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            align-self: center;
+            margin: auto;
+            width:fit-content;
+            height:min-content;
+            min-height:10%;
+            display:grid;
+            grid-template-columns: minmax(0,1fr);
+            grid-template-rows: 20px minmax(0,1fr);
+            background-color: red;
+            border: solid 2px #2b2b2b;
+            background-color: #191919;
+            border-radius: 5px;
+            color:white;
+        }
+        .name-popup > div.popupbar {
+            grid-column:1/4;
+            background-color: #2b2b2b;
+            width:100%;
+        }
+        .name-popup > div.popupcontent {
+            padding:10px;
+            grid-column: 2;
+            grid-row: 2;
+        }
     </style>
+    <script>
+
+        class File {
+            static files = [];
+            constructor(fileName) {
+                this.name = fileName;
+                this.element = document.querySelector("template#fileElement").content.firstElementChild.cloneNode(true);
+                this.element.querySelector("a").innerHTML = this.name;
+                document.querySelector(".filesview").appendChild(this.element);
+                File.files.push(this);
+            }
+        }
+        window.addEventListener("load", ()=> {
+            new File("Test of the file loading script");
+        })
+    </script>
 </head>
 
 <body>
     <div class="files">
         <div class="header">
             <div class="titlebar"><a>Working Folder</a></div>
-            <div class="hotbar disabled">
-                <div class="hotbar-item">
+            <div class="hotbar">
+                <div class="hotbar-item new-button">
                     <img src="images/icons/ic_fluent_add_circle_24_regular.svg">
                     <a>New</a>
                 </div>
@@ -246,73 +297,19 @@
             <div class="filepane">
             </div>
             <div class="filesview">
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>This is an absurdly large file name in order to test the capabilities of the wrap</a></div>
-                <div class="file"><img src="images/windows11-folder-default.svg"><a>Last file</a></div>
             </div>
+            <template id="fileElement">
+                <div class="file"><img src="images/shell32_152.ico"><a>${{name}}</a></div>
+            </template>
         </div>
     </div>
     <div class="drive">
+    </div>
+    <div class="name-popup" style="display:none;">
+        <div class="popupbar"></div>
+        <div class="popupcontent">
+            This is a test of the popup window
+        </div>
     </div>
 </body>
 

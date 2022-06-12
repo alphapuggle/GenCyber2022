@@ -319,12 +319,11 @@
             background-color: #f0f0f0;
             grid-column: 1;
             grid-row: 2;
-            display:flex;
-            flex-wrap: nowrap;
+            display:grid;
         }
         .section {
+            grid-row:1;
             background-color: white;
-            flex:1;
             display:grid;
             grid-template-rows: 20px 1fr 1fr;
             border:5px #ffffff inset;
@@ -378,11 +377,23 @@
         }
     </style>
     <script>
-        let partitionTable = {}
-        let registers = 256
+        let partitionTable = {
+            registerStatus: []
+        }
+        let headLocation = 0;
+        function advanceHead() {
+            headLocation++;
+            if(headLocation >= registers) {
+                headLocation = 0;
+            }
+        }
+        let registers = 256;
         let data = []
         for(i = 0; i < registers * 4; i++) {
             data[i] = "0000";
+        }
+        for(i = 0; i < registers; i++) {
+            partitionTable.registerStatus[i] = 0;
         }
         let openFile;
         class File {
@@ -392,30 +403,25 @@
                 this.uuid = crypto.randomUUID();
                 partitionTable[this.uuid] = {
                     name: this.name,
-                    data: []
+                    sections: []
                 }
                 this.element = document.querySelector("template#fileElement").content.firstElementChild.cloneNode(true);
                 this.element.querySelector("a").innerHTML = this.name;
-                this.lastClick = Date.now();
                 this.contents = "";
                 this.active = true;
-                this.element.addEventListener("click",()=>{
-                    if(Date.now() - this.lastClick < 200) {
-                        console.log("Double Click!")
+                this.element.addEventListener("dblclick",()=>{
+                    openEditor(this);
+                })
+                this.element.addEventListener("keydown",(e)=>{
+                    if(e.key == "Enter") {
                         openEditor(this);
+                    } else if(e.key == "Delete") {
+                        this.delete();
                     }
-                    this.lastClick = Date.now();
                 })
                 this.element.addEventListener("focusout",(e)=>{
                     if(e.relatedTarget == document.querySelector("img[title='Delete']").parentElement) {
-                        console.log(`DELETE ${this.name}`)
-                        this.section.updateColor("#880e0e")
-                        this.element.animate([
-                            {opacity:1},{opacity:0}
-                        ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
-                            document.querySelector(".filesview").removeChild(this.element);
-                            File.files.splice(File.files.indexOf(this),1)
-                        })
+                        this.delete();
                     }
                 })
                 document.querySelector(".filesview").appendChild(this.element);
@@ -423,46 +429,111 @@
                     {opacity:0},{opacity:1}
                 ],{duration:100,easing:"ease-in-out"})
                 this.element.focus();
-                this.section = new Section(this);
                 File.files.push(this);
             }
             getPartitionTableEntry() {
                 return partitionTable[this.uuid];
             }
+            delete() {
+                console.log(`DELETE ${this.name}`)
+                this.element.animate([
+                    {opacity:1},{opacity:0}
+                ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
+                    for(let section of this.getPartitionTableEntry().sections) {
+                        section.delete();
+                    }
+                    document.querySelector(".filesview").removeChild(this.element);
+                    File.files.splice(File.files.indexOf(this),1)
+                })
+            }
         }
         class Section {
-            static sections = [];
-            constructor(file) {
-                this.file = file; 
+            constructor(startBlock, file) {
+                this.startBlock = startBlock;
+                this.endBlock;
+                this.file = file;
+                this.deleted = false;
                 this.element = document.querySelector("template#sectionElement").content.firstElementChild.cloneNode(true);
                 this.element.querySelector("a").innerHTML = this.file.name;
-                document.querySelector(".drive").appendChild(this.element);
-                this.updateColor("#000080")
-                Section.sections.push(this);
-                
             }
-            updateColor(color) {
-                this.color = color;
-                this.element.querySelector(".section > div").style.backgroundColor = this.color;
+            updateSize(startBlock = this.startBlock,endBlock = this.endBlock) {
+                this.startBlock = startBlock;
+                this.endBlock = endBlock;
+                for(i = startBlock; i <= endBlock; i++) {
+                    partitionTable.registerStatus[i] = !this.deleted + 0;
+                }
+                this.element.style.gridColumn = `${this.startBlock == 0 ? 1 : this.startBlock} / ${this.endBlock + 1}`;
+                if(this.element.parentElement == null) {
+                    document.querySelector(".drive").appendChild(this.element);
+                }
+            }
+            delete() {
+                this.element.querySelector(".section > div").style.backgroundColor = "#880e0e";
+                this.deleted = true;
+                this.file.getPartitionTableEntry().sections.splice(this.file.getPartitionTableEntry().sections.indexOf(this),1);
+                this.updateSize()
             }
         }
         function openEditor(file) {
             openFile = file;
+            let tableEntry = file.getPartitionTableEntry();
+            if(tableEntry.sections.length > 0) {
+                let output = "";
+                for(section of tableEntry.sections) {
+                    output += readBinaryData(section.startBlock,section.endBlock);
+                }
+                document.querySelector(".editor > textarea").value = output;                 
+            }
             document.querySelector(".editor").style.display = "grid";
             document.querySelector(".editor").animate([
                 {opacity:0},{opacity:1}
-            ],{duration:100,easing:"ease-in-out"})
+            ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
+                document.querySelector(".editor > textarea").focus();
+            })
         }
         function closeEditor(save) {
+            let tableEntry = openFile.getPartitionTableEntry();
             if(save) {
-                //save
+                let newSections = [];
+                let chard = document.querySelector(".editor > textarea").value.split("");
+                while(chard.length > 0) {
+                    let start;
+                    if(tableEntry.sections.length > 0) {
+                        start = tableEntry.sections[0].startBlock;
+                        for(section of tableEntry.sections) {
+                            section.delete();
+                        }
+                    }
+                    while(start == undefined) {
+                        if(partitionTable.registerStatus[headLocation] == 0) {
+                            start = headLocation;
+                        } else {
+                            advanceHead();
+                        }
+                    }
+                    newSections.push(new Section(start,openFile));
+                    while(partitionTable.registerStatus[headLocation] == 0 && chard.length > 0) {
+                        let i = headLocation * 4
+                        let char = chard.splice(0,1)[0];
+                        let bin = intToBinary(char.charCodeAt(0));
+                        console.log(bin);
+                        data[i] = bin.slice(0,4);
+                        data[i + 1] = bin.slice(4,8);
+                        data[i + 2] = bin.slice(8,12);
+                        data[i + 3] = bin.slice(12,16);
+                        advanceHead();
+                    }
+                    newSections[newSections.length - 1].updateSize(newSections[newSections.length - 1].startBlock,headLocation - 1);
+                }
+                openFile.getPartitionTableEntry().sections = newSections;
             }
             document.querySelector(".editor").animate([
                 {opacity:1},{opacity:0}
             ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",(e)=>{
                 document.querySelector(".editor").style.display = "none";
                 openFile = undefined;
-            }) 
+            })
+            document.querySelector(".editor > textarea").value = "";
         }
         function intToBinary(num) {
             let x = num;
@@ -493,20 +564,12 @@
             }
             console.log(output);
         }
-        function inputData(input,blockStart = 0) {
-            input = input.split("");
-            let dataIndex = blockStart * 4;
-            for(i = 0; i < input.length; i++) {
-                console.log(i);
-                let char = input[i];
-                let bin = intToBinary(char.charCodeAt(0));
-                data[dataIndex] = bin.slice(0,4);
-                data[dataIndex + 1] = bin.slice(4,8);
-                data[dataIndex + 2] = bin.slice(8,12);
-                data[dataIndex + 3] = bin.slice(12,16);
-                dataIndex += 4;
-                console.log(bin,"\n");
+        function readBinaryData(startBlock,endBlock) {
+            let output = "";
+            for(i = startBlock*4; i < endBlock*4; i+= 4) {
+                output += String.fromCharCode(binaryToInt(data[i]+data[i+1]+data[i+2]+data[i+3]));
             }
+            return output;
         }
         window.addEventListener("load", () => {
             //new File("Test of the file loading script");
@@ -542,6 +605,15 @@
             document.querySelector("img[title='Discard']").parentElement.addEventListener("click", () => {
                 closeEditor(false);
             })
+            document.querySelector(".editor > textarea").addEventListener("keydown",(e)=>{
+                if(e.ctrlKey && e.key == "s") {
+                    e.preventDefault();
+                    closeEditor(true);
+                } else if(e.key == "Escape") {
+                    closeEditor(false);
+                }
+            })
+            document.querySelector(".drive").style.gridTemplateColumns = `repeat(${registers},1fr)`;
         })
     </script>
 </head>

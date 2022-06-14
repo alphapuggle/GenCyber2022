@@ -84,7 +84,7 @@
             display: grid;
             padding: 5px;
             grid-gap: 2px;
-            grid-template-columns: 75px repeat(5, 34px);
+            grid-template-columns: 75px repeat(5, 34px) 115px;
             padding-left: 15px;
         }
 
@@ -384,8 +384,23 @@
         .editorbar-item[disabled='true'] {
             filter:opacity(.5);
         }
+        ::-webkit-scrollbar {
+            width:5px;
+        }
+        ::-webkit-scrollbar-button {
+            background-color: #171717
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: #959595;
+        }
+        img[src='images/icons/ic_fluent_document_24_regular.svg'] {
+            filter: invert(1);
+        }
     </style>
     <script>
+        let os = false;
+        let systemFiles = [];
         let partitionTable = {
             registerStatus: []
         }
@@ -408,8 +423,9 @@
         let openFile;
         class File {
             static files = [];
-            constructor(fileName) {
+            constructor(fileName,systemFile = false) {
                 this.name = fileName;
+                this.systemFile = systemFile;
                 this.uuid = crypto.randomUUID();
                 partitionTable[this.uuid] = {
                     name: this.name,
@@ -488,6 +504,9 @@
                 }
             }
             delete() {
+                if(openFile == this) {
+                    document.querySelector("img[title='Save']").parentElement.setAttribute("disabled",true);
+                }
                 this.element.querySelector(".section > div").style.backgroundColor = "#880e0e";
                     this.element.animate([
                         {"boxShadow":"#880e0e 0px 0px 0px 0px"},
@@ -505,6 +524,20 @@
                 this.file.getPartitionTableEntry().sections.splice(this.file.getPartitionTableEntry().sections.indexOf(this),1);
             }
         }
+        function toggleOS() {
+            os = !os
+            if(os) {
+                document.querySelector(".os > img").src = "images/icons/ic_fluent_cloud_sync_24_regular.svg"
+                setTimeout(()=> {
+                    document.querySelector(".os > img").src = "images/icons/ic_fluent_cloud_sync_complete_24_regular.svg"
+                },Math.floor(Math.random() * 1750) + 250)
+            } else {
+                document.querySelector(".os > img").src = "images/icons/ic_fluent_cloud_sync_24_regular.svg"
+                setTimeout(()=> {
+                    document.querySelector(".os > img").src = "images/icons/ic_fluent_cloud_offline_24_regular.svg"
+                },Math.floor(Math.random() * 1750) + 250)
+            }
+        }
         function openEditor(file) {
             document.querySelector(".editor > textarea").value = "";
             openFile = file;
@@ -518,7 +551,8 @@
                 document.querySelector(".editor > textarea").value = output;                 
             }
             document.querySelector(".editor").style.display = "grid";
-            document.querySelector("img[title='Save']").parentElement.setAttribute("disabled",false);
+            console.log(openFile.systemFile)
+            document.querySelector("img[title='Save']").parentElement.setAttribute("disabled",openFile.systemFile);
             document.querySelector(".editor").animate([
                 {opacity:0},{opacity:1}
             ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
@@ -534,55 +568,8 @@
         }
         function closeEditor(save) {
             if(save) {
-                let tableEntry = openFile.getPartitionTableEntry();
-                let newSections = [];
                 let chard = document.querySelector(".editor > textarea").value.split("");
-                if(chard.length > 0) {
-                    if(tableEntry.sections.length > 0) {
-                        start = tableEntry.sections[0].startBlock;
-                        headLocation = start;
-                        for(section of tableEntry.sections) {
-                            section.wipe();
-                        }
-                    }
-                    while(chard.length > 0) {
-                        let loop = 0;
-                        while(partitionTable.registerStatus[headLocation] == 1 && loop <= 1) {
-                            advanceHead();
-                            if(headLocation == 0) {
-                                loop ++;
-                            }
-                        }
-                        console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
-                        if(headLocation >= registers - 1) {
-                            advanceHead();
-                            console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
-                        } else {
-                            if(loop > 1) {
-                                window.confirm("Drive is out of storage space and data will be lost");
-                                break;
-                            } else {
-                                let section = new Section(headLocation, openFile);
-                                while(chard.length > 0 && partitionTable.registerStatus[headLocation] == 0 && headLocation != registers - 1) {
-                                    let i = headLocation * 4;
-                                    let char = chard.splice(0,1)[0];
-                                    let bin = intToBinary(char.charCodeAt(0));
-                                    data[i] = bin.slice(0,4);
-                                    data[i + 1] = bin.slice(4,8);
-                                    data[i + 2] = bin.slice(8,12);
-                                    data[i + 3] = bin.slice(12,16);
-                                    partitionTable.registerStatus[headLocation] = 1;
-                                    advanceHead();
-                                    console.log()
-                                }
-                                console.log(headLocation);
-                                section.updateSize(section.startBlock,headLocation == 0 ? registers - 1 : headLocation - 1)
-                                newSections.push(section);
-                            }
-                            openFile.getPartitionTableEntry().sections = newSections;
-                        }
-                    }
-                }
+                updateFile(chard,openFile)
             }
             document.querySelector(".editor").animate([
                 {opacity:1},{opacity:0}
@@ -628,6 +615,86 @@
             }
             return output;
         }
+        function randomUpdates(maxChar = 65535) {
+            let activeFile;
+            if(os) {
+                let operation = 0;
+                if(systemFiles.length > 0) {
+                    operation = Math.round(Math.random());
+                }
+                if(operation == 0 && systemFiles.length < 5) {
+                    let fileName = "System_"
+                    let length = Math.ceil(Math.random() * 10);
+                    for(i = 0; i < length; i++) {
+                        fileName += String.fromCharCode(Math.floor(Math.random() * maxChar))
+                    }
+                    systemFiles.push(activeFile = new File(fileName + ".bin",true));
+                    let contents = [];
+                    length = Math.ceil(Math.random() * 20);
+                    for(i = 0; i < length; i++) {
+                        contents.push(String.fromCharCode(Math.floor(Math.random() * maxChar)))
+                    }
+                    updateFile(contents,activeFile)
+                } else {
+                    let deleteFile = systemFiles[Math.floor(Math.random() * systemFiles.length)]
+                    systemFiles.splice(systemFiles.indexOf(deleteFile),1);
+                    deleteFile.delete();
+                }
+            }
+            setTimeout(randomUpdates,Math.round(Math.random() * 15000) + 5000);
+        }
+        function updateFile(chard,activeFile) {
+            let tableEntry = activeFile.getPartitionTableEntry();
+            let newSections = [];
+            if(chard.length > 0) {
+                    if(tableEntry.sections.length > 0) {
+                        start = tableEntry.sections[0].startBlock;
+                        headLocation = start;
+                        for(section of tableEntry.sections) {
+                            section.wipe();
+                        }
+                    }
+                    while(chard.length > 0) {
+                        let loop = 0;
+                        while(partitionTable.registerStatus[headLocation] == 1 && loop <= 1) {
+                            advanceHead();
+                            if(headLocation == 0) {
+                                loop ++;
+                            }
+                        }
+                        console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
+                        if(headLocation >= registers - 1) {
+                            advanceHead();
+                            console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
+                        } else {
+                            if(loop > 1) {
+                                if(!activeFile.systemFile) {
+                                    window.confirm("Drive is out of storage space and data will be lost");
+                                }
+                                break;
+                            } else {
+                                let section = new Section(headLocation, activeFile);
+                                while(chard.length > 0 && partitionTable.registerStatus[headLocation] == 0 && headLocation != registers - 1) {
+                                    let i = headLocation * 4;
+                                    let char = chard.splice(0,1)[0];
+                                    let bin = intToBinary(char.charCodeAt(0));
+                                    data[i] = bin.slice(0,4);
+                                    data[i + 1] = bin.slice(4,8);
+                                    data[i + 2] = bin.slice(8,12);
+                                    data[i + 3] = bin.slice(12,16);
+                                    partitionTable.registerStatus[headLocation] = 1;
+                                    advanceHead();
+                                    console.log()
+                                }
+                                console.log(headLocation);
+                                section.updateSize(section.startBlock,headLocation == 0 ? registers - 1 : headLocation - 1)
+                                newSections.push(section);
+                            }
+                            activeFile.getPartitionTableEntry().sections = newSections;
+                        }
+                    }
+                }
+        }
         window.addEventListener("load", () => {
             window.addEventListener("beforeunload",function (e) {
                 e.returnValue = "\"Drive\" data will not be saved"
@@ -640,6 +707,9 @@
                     {opacity:0},{opacity:1}
                 ],{duration:100,easing:"ease-in-out"})
                 document.querySelector(".popupfield").focus();
+            })
+            document.querySelector(".os").addEventListener("click", () => {
+                toggleOS();
             })
             document.querySelector(".popupcancel").addEventListener("click", () => {
                 document.querySelector(".name-popup").animate([
@@ -679,6 +749,7 @@
                 }
             })
             document.querySelector(".drive").style.gridTemplateColumns = `repeat(${registers},1fr)`;
+            setTimeout(randomUpdates,Math.round(Math.random() * 15000) + 5000);
         })
     </script>
 </head>
@@ -707,6 +778,10 @@
                 <div class="hotbar-item" tabindex="1">
                     <img src="images/icons/ic_fluent_delete_24_regular.svg" title="Delete">
                 </div>
+                <div class="hotbar-item os" tabindex="1">
+                    <img src="images/icons/ic_fluent_cloud_offline_24_regular.svg" title="New">
+                    <a>Boot Drive</a>
+                </div>
             </div>
         </div>
         <div class="content">
@@ -734,7 +809,7 @@
             <div class="filesview">
             </div>
             <template id="fileElement">
-                <div class="file" tabindex="1"><img src="images/shell32_152.ico"><a>${{name}}</a></div>
+                <div class="file" tabindex="1"><img src="images/icons/ic_fluent_document_24_regular.svg"><a>${{name}}</a></div>
             </template>
         </div>
     </div>
@@ -747,9 +822,9 @@
         </div>
     </template>
     <div class="name-popup" style="display: none;">
-        <div class="popupbar"><img src="images/shell32_152.ico"><a>Create New File</a></div>
+        <div class="popupbar"><img src="images/icons/ic_fluent_document_24_regular.svg"><a>Create New File</a></div>
         <div class="popupcontent">
-            <img class="popuplogo" src="images/shell32_152.ico">
+            <img class="popuplogo" src="images/icons/ic_fluent_document_24_regular.svg">
             <a class="popuptooltip">Type a file name</a>
             <label for="name">Name:</label>
             <input name="name" class="popupfield" type="search" placeholder="Filename">
@@ -758,7 +833,7 @@
         </div>
     </div>
     <div class="editor" style="display:none;">
-        <div class="popupbar"><img src="images/shell32_152.ico" title="Edit File"><a>Edit File</a></div>
+        <div class="popupbar"><img src="images/icons/ic_fluent_document_24_regular.svg" title="Edit File"><a>Edit File</a></div>
         <div class="editorbar">
             <div class="editorbar-item">
                 <img src="images/icons/ic_fluent_save_24_regular.svg" title="Save">

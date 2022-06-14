@@ -88,6 +88,10 @@
             padding-left: 15px;
         }
 
+        .hotbar-item[disabled] {
+            filter: opacity(.5);
+            cursor: not-allowed;
+        }
         .hotbar-item, .editorbar-item {
             padding: 7px;
             border-radius: 10px;
@@ -230,7 +234,6 @@
             grid-template-columns: minmax(0, 1fr);
             grid-template-rows: auto minmax(0, 1fr);
             border: solid 2px #2b2b2b;
-            //background-color: #191919;
             border-radius: 5px;
             color: white;
         }
@@ -322,11 +325,14 @@
             display:grid;
         }
         .section {
+            -webkit-user-select: none;
+            user-select: none;
             grid-row:1;
             background-color: white;
             display:grid;
             grid-template-rows: 20px 1fr 1fr;
             border:5px #ffffff inset;
+            overflow: hidden;
         }
         .section > .sectiontext {
             margin: 5px 0px;
@@ -375,6 +381,9 @@
             resize:none;
             color:white;
         }
+        .editorbar-item[disabled='true'] {
+            filter:opacity(.5);
+        }
     </style>
     <script>
         let partitionTable = {
@@ -395,6 +404,7 @@
         for(i = 0; i < registers; i++) {
             partitionTable.registerStatus[i] = 0;
         }
+        partitionTable.registerStatus[registers - 1] = 1;
         let openFile;
         class File {
             static files = [];
@@ -439,7 +449,9 @@
                 this.element.animate([
                     {opacity:1},{opacity:0}
                 ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
-                    for(let section of this.getPartitionTableEntry().sections) {
+                    let sections = Array.from(this.getPartitionTableEntry().sections);
+                    for(let section of sections) {
+                        console.log(`Deleted`,section);
                         section.delete();
                     }
                     document.querySelector(".filesview").removeChild(this.element);
@@ -465,67 +477,112 @@
                 this.element.style.gridColumn = `${this.startBlock == 0 ? 1 : this.startBlock} / ${this.endBlock + 1}`;
                 if(this.element.parentElement == null) {
                     document.querySelector(".drive").appendChild(this.element);
+                    this.element.animate([
+                        {"boxShadow":"rebeccapurple 0px 0px 0px 0px"},
+                        {"boxShadow":"rebeccapurple 0px 0px 10px 10px"},
+                        {"boxShadow":"rebeccapurple 0px 0px 0px 0px"}
+                    ],{duration:1000,easing:"ease-in-out"})
+                    this.element.addEventListener("dblclick",()=>{
+                        if(this.deleted) { recoverChunk(this) };
+                    })
                 }
             }
             delete() {
                 this.element.querySelector(".section > div").style.backgroundColor = "#880e0e";
+                    this.element.animate([
+                        {"boxShadow":"#880e0e 0px 0px 0px 0px"},
+                        {"boxShadow":"#880e0e 0px 0px 10px 10px"},
+                        {"boxShadow":"#880e0e 0px 0px 0px 0px"}
+                    ],{duration:1000,easing:"ease-in-out"})
                 this.deleted = true;
                 this.file.getPartitionTableEntry().sections.splice(this.file.getPartitionTableEntry().sections.indexOf(this),1);
                 this.updateSize()
             }
+            wipe() {
+                this.deleted = true;
+                this.updateSize();
+                document.querySelector(".drive").removeChild(this.element);
+                this.file.getPartitionTableEntry().sections.splice(this.file.getPartitionTableEntry().sections.indexOf(this),1);
+            }
         }
         function openEditor(file) {
+            document.querySelector(".editor > textarea").value = "";
             openFile = file;
             let tableEntry = file.getPartitionTableEntry();
             if(tableEntry.sections.length > 0) {
                 let output = "";
                 for(section of tableEntry.sections) {
+                    console.log(`Reading `, section)
                     output += readBinaryData(section.startBlock,section.endBlock);
                 }
                 document.querySelector(".editor > textarea").value = output;                 
             }
             document.querySelector(".editor").style.display = "grid";
+            document.querySelector("img[title='Save']").parentElement.setAttribute("disabled",false);
             document.querySelector(".editor").animate([
                 {opacity:0},{opacity:1}
             ],{duration:100,easing:"ease-in-out"}).addEventListener("finish",()=>{
                 document.querySelector(".editor > textarea").focus();
             })
         }
+        function recoverChunk(section) {
+            console.log("recover")
+            document.querySelector(".editor > textarea").value = "";
+            document.querySelector("img[title='Save']").parentElement.setAttribute("disabled",true);
+            document.querySelector(".editor > textarea").value = readBinaryData(section.startBlock,section.endBlock);
+            document.querySelector(".editor").style.display = "grid";
+        }
         function closeEditor(save) {
-            let tableEntry = openFile.getPartitionTableEntry();
             if(save) {
+                let tableEntry = openFile.getPartitionTableEntry();
                 let newSections = [];
                 let chard = document.querySelector(".editor > textarea").value.split("");
-                while(chard.length > 0) {
-                    let start;
+                if(chard.length > 0) {
                     if(tableEntry.sections.length > 0) {
                         start = tableEntry.sections[0].startBlock;
+                        headLocation = start;
                         for(section of tableEntry.sections) {
-                            section.delete();
+                            section.wipe();
                         }
                     }
-                    while(start == undefined) {
-                        if(partitionTable.registerStatus[headLocation] == 0) {
-                            start = headLocation;
-                        } else {
+                    while(chard.length > 0) {
+                        let loop = 0;
+                        while(partitionTable.registerStatus[headLocation] == 1 && loop <= 1) {
                             advanceHead();
+                            if(headLocation == 0) {
+                                loop ++;
+                            }
+                        }
+                        console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
+                        if(headLocation >= registers - 1) {
+                            advanceHead();
+                            console.log(headLocation,partitionTable.registerStatus[headLocation], loop)
+                        } else {
+                            if(loop > 1) {
+                                window.confirm("Drive is out of storage space and data will be lost");
+                                break;
+                            } else {
+                                let section = new Section(headLocation, openFile);
+                                while(chard.length > 0 && partitionTable.registerStatus[headLocation] == 0 && headLocation != registers - 1) {
+                                    let i = headLocation * 4;
+                                    let char = chard.splice(0,1)[0];
+                                    let bin = intToBinary(char.charCodeAt(0));
+                                    data[i] = bin.slice(0,4);
+                                    data[i + 1] = bin.slice(4,8);
+                                    data[i + 2] = bin.slice(8,12);
+                                    data[i + 3] = bin.slice(12,16);
+                                    partitionTable.registerStatus[headLocation] = 1;
+                                    advanceHead();
+                                    console.log()
+                                }
+                                console.log(headLocation);
+                                section.updateSize(section.startBlock,headLocation == 0 ? registers - 1 : headLocation - 1)
+                                newSections.push(section);
+                            }
+                            openFile.getPartitionTableEntry().sections = newSections;
                         }
                     }
-                    newSections.push(new Section(start,openFile));
-                    while(partitionTable.registerStatus[headLocation] == 0 && chard.length > 0) {
-                        let i = headLocation * 4
-                        let char = chard.splice(0,1)[0];
-                        let bin = intToBinary(char.charCodeAt(0));
-                        console.log(bin);
-                        data[i] = bin.slice(0,4);
-                        data[i + 1] = bin.slice(4,8);
-                        data[i + 2] = bin.slice(8,12);
-                        data[i + 3] = bin.slice(12,16);
-                        advanceHead();
-                    }
-                    newSections[newSections.length - 1].updateSize(newSections[newSections.length - 1].startBlock,headLocation - 1);
                 }
-                openFile.getPartitionTableEntry().sections = newSections;
             }
             document.querySelector(".editor").animate([
                 {opacity:1},{opacity:0}
@@ -566,12 +623,16 @@
         }
         function readBinaryData(startBlock,endBlock) {
             let output = "";
-            for(i = startBlock*4; i < endBlock*4; i+= 4) {
+            for(i = startBlock*4; i <= endBlock*4; i+= 4) {
                 output += String.fromCharCode(binaryToInt(data[i]+data[i+1]+data[i+2]+data[i+3]));
             }
             return output;
         }
         window.addEventListener("load", () => {
+            window.addEventListener("beforeunload",function (e) {
+                e.returnValue = "\"Drive\" data will not be saved"
+                return "\"Drive\" data will not be saved";
+            })
             //new File("Test of the file loading script");
             document.querySelector(".new-button").addEventListener("click", () => {
                 document.querySelector(".name-popup").style.display = "grid";
@@ -600,7 +661,9 @@
             })
 
             document.querySelector("img[title='Save']").parentElement.addEventListener("click", () => {
-                closeEditor(true);
+                if(!(document.querySelector("img[title='Save']").parentElement.getAttribute("disabled") == "true") /* While I'd rather have this without "-- true", javascript is weird and it returns the boolean here as a string*/) {
+                    closeEditor(true);
+                }
             })
             document.querySelector("img[title='Discard']").parentElement.addEventListener("click", () => {
                 closeEditor(false);
@@ -608,7 +671,9 @@
             document.querySelector(".editor > textarea").addEventListener("keydown",(e)=>{
                 if(e.ctrlKey && e.key == "s") {
                     e.preventDefault();
-                    closeEditor(true);
+                    if(!(document.querySelector("img[title='Save']").parentElement.getAttribute("disabled") == "true")) {
+                        closeEditor(true);
+                    }
                 } else if(e.key == "Escape") {
                     closeEditor(false);
                 }
@@ -627,16 +692,16 @@
                     <img src="images/icons/ic_fluent_add_circle_24_regular.svg" title="New">
                     <a>New</a>
                 </div>
-                <div class="hotbar-item" tabindex="1">
+                <div class="hotbar-item" tabindex="1" disabled>
                     <img src="images/icons/ic_fluent_cut_24_regular.svg" title="Cut">
                 </div>
-                <div class="hotbar-item" tabindex="1">
+                <div class="hotbar-item" tabindex="1" disabled>
                     <img src="images/icons/ic_fluent_copy_24_regular.svg" title="Copy">
                 </div>
-                <div class="hotbar-item" tabindex="1">
+                <div class="hotbar-item" tabindex="1" disabled>
                     <img src="images/icons/ic_fluent_clipboard_paste_24_regular.svg" title="Paste">
                 </div>
-                <div class="hotbar-item" tabindex="1">
+                <div class="hotbar-item" tabindex="1" disabled>
                     <img src="images/icons/ic_fluent_rename_24_regular.svg" title="Rename">
                 </div>
                 <div class="hotbar-item" tabindex="1">
@@ -674,6 +739,7 @@
         </div>
     </div>
     <div class="drive"></div>
+    <div class=""></div>
     <template id="sectionElement">
         <div class="section" tabindex="1">
             <div></div>
